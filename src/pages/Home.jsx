@@ -1,7 +1,8 @@
 import Banner from "../components/Banner";
 import NewsCard from "../components/NewsCard";
 import NewsLabel from "../components/NewsLabel";
-const Home = () => {
+const Home = ({data}) => {
+  
   return (
     <div className="container mt-16">
       {/* banner */}
