@@ -1,0 +1,10 @@
+.active {
+    /* background-color: #4CAF50;
+    color: white;
+    padding: 10px 12px; */
+}
+
+input[type="search"]::placeholder {
+    color: white; /* Change this to the color you want */
+    
+}

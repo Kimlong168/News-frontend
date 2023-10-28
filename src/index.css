@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    body {
+        font-family: Battambang !important;
+        background-color: #f3f0f0;
+    }
+
+    .section {
+        @apply lg:h-screen flex items-center;
+    }
+}
