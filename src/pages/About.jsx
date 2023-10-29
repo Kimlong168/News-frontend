@@ -1,6 +1,6 @@
 import mission from "../assets/mission.png";
 import vision from "../assets/vision.png";
-
+import AuthorCard from "../components/AuthorCard";
 const About = () => {
   return (
     <div className="container">
@@ -43,7 +43,19 @@ const About = () => {
         </div>
       </div>
 
-      <div className="">Author</div>
+      <div>
+        <div className="text-5xl italic text-red-600 pb-1 border-b-4 border-red-600 w-fit transition-all mb-8 cursor-pointer  hover:w-[100%]">
+          About the Authors
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-5 md:px-0">
+          <AuthorCard />
+          <AuthorCard />
+          <AuthorCard />
+          <AuthorCard />
+          <AuthorCard />
+          <AuthorCard />
+        </div>
+      </div>
     </div>
   );
 };

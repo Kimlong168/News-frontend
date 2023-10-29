@@ -11,4 +11,5 @@
     .section {
         @apply lg:h-screen flex items-center;
     }
+
 }
