@@ -26,13 +26,14 @@ const ResultCarousel = ({ resultList }) => {
   return (
     <div className="relative">
       <Carousel
+        infiniteLoop={true}
+        autoPlay={true}
         showIndicators={false}
         showArrows={false}
         showThumbs={false}
         showStatus={false}
-        infiniteLoop={true}
-        autoPlay={true}
-        interval={5000}
+        stopOnHover={true}
+        interval={2000}
         transitionTime={500}
       >
         {resultList.map((result) => (
@@ -40,7 +41,7 @@ const ResultCarousel = ({ resultList }) => {
             <span className="flex flex-col md:flex-row justify-center items-center gap-2">
               <div className="flex gap-3">
                 {result.teamA}
-                <div >
+                <div>
                   {result.teamAGoal} - {result.teamBGoal}
                 </div>
                 {result.teamB}
