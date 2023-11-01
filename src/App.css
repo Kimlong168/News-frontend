@@ -1,10 +1,12 @@
 input[type="search"]::placeholder {
     color: white;
     /* Change this to the color you want */
-
 }
 
-
+.smallScreen input[type="search"]::placeholder {
+    color: rgb(200, 7, 7);
+    /* Change this to the color you want */
+}
 
 /* customCarouselStyles.css */
 /* Center the previous (left) arrow */

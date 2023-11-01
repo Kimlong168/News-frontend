@@ -21,9 +21,9 @@ const Home = ({ postList }) => {
                   <>
                     <div>
                       <NewsCard
-                        coverImage="https://cpl.sgp1.cdn.digitaloceanspaces.com/posts/medium/1698033346.png"
+                        coverImage={post.img}
                         title={post.title}
-                        description={post.content}
+                        description={post.description}
                       />
                     </div>
                   </>
@@ -38,9 +38,9 @@ const Home = ({ postList }) => {
                 .map((post) => (
                   <div key={post.id}>
                     <NewsCard
-                      coverImage="https://cpl.sgp1.cdn.digitaloceanspaces.com/posts/medium/1698033346.png"
+                      coverImage={post.img}
                       title={post.title}
-                      description={post.title}
+                      description={post.description}
                     />
                   </div>
                 ))

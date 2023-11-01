@@ -2,11 +2,19 @@ import { Link } from "react-router-dom";
 import { FaTiktok } from "react-icons/fa";
 import kimlong from "../assets/kimlong.jpg";
 import LinkIcon from "./LinkIcon";
+// motion
+import { motion } from "framer-motion";
+// vartants
+import { fadeIn } from "../variants";
 const AuthorCard = ({ fullName, profileImage, bio, links }) => {
   return (
-    <div>
+    <motion.div
+      variants={fadeIn("right", 0.2)}
+      initial="hidden"
+      whileInView={"show"}
+      viewport={{ once: false, amount: 0.3 }}
+    >
       <div className="rounded-3xl  shadow-3xl  bg-white shadow-xl pt-5">
-        {/* <img src="https://i.imgur.com/dYcYQ7E.png" alt="" className="w-full max-h-[200px]" /> */}
         <div className="flex justify-center">
           <a href="https://kimlongchann.online/kimlong.jpg">
             <div className=" w-[150px] h-[150px]">
@@ -31,15 +39,15 @@ const AuthorCard = ({ fullName, profileImage, bio, links }) => {
             {links &&
               links.map((link) => (
                 <>
-                  <Link to={`/${link.url}`}>
+                  <a href={link.url}>
                     <LinkIcon title={link.title} />
-                  </Link>
+                  </a>
                 </>
               ))}
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

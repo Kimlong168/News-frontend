@@ -1,6 +1,10 @@
 import mission from "../assets/mission.png";
 import vision from "../assets/vision.png";
 import AuthorCard from "../components/AuthorCard";
+// motion
+import { motion } from "framer-motion";
+// vartants
+import { fadeIn } from "../variants";
 import { auth } from "../firebase-config";
 const About = ({ authorList }) => {
   return (
@@ -20,15 +24,27 @@ const About = ({ authorList }) => {
             that enhance their passion for sports.
           </p>
         </div>
-        <div className="flex-1 flex justify-end">
+        <motion.div
+          variants={fadeIn("left", 0.2)}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{ once: false, amount: 0.3 }}
+          className="flex-1 flex justify-end"
+        >
           <img className="w-[80%]" src={mission} />
-        </div>
+        </motion.div>
       </div>
 
       <div className="flex flex-col lg:flex-row gap-10 items-center justify-between my-10">
-        <div className="flex-1 flex order-2 lg:order-1">
+        <motion.div
+          variants={fadeIn("right", 0.2)}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{ once: false, amount: 0.3 }}
+          className="flex-1 flex order-2 lg:order-1"
+        >
           <img className="w-[80%]" src={vision} />
-        </div>
+        </motion.div>
         <div className="flex-1 order-1 lg:order-2">
           <div className="text-5xl italic text-red-600 pb-1 border-b-4 border-red-600 w-fit hover:w-[100%] transition-all mb-8 cursor-pointer">
             Vision

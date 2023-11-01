@@ -18,7 +18,7 @@ const NewCardWithAuthor = ({
       initial="hidden"
       whileInView={"show"}
       viewport={{ once: true, amount: 0.3 }}
-      className="mb-2 cursor-pointer shadow-xl"
+      className="mb-2 cursor-pointer shadow-xl md:h-[500px]"
     >
       <div className="w-full h-[240px] overflow-hidden">
         <img
@@ -37,7 +37,7 @@ const NewCardWithAuthor = ({
       </div>
 
       <div className="p-4 md:p-6">
-        <div className="line-clamp-2 font-semibold text-2xl my-4 hover:text-yellow-500 transition-all ">
+        <div className="line-clamp-2  font-semibold text-2xl my-4 hover:text-yellow-500 transition-all ">
           {title}
         </div>
         <div className="line-clamp-2 text-sm text-gray-400">{description}</div>

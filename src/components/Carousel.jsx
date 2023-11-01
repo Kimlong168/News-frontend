@@ -4,7 +4,7 @@ import { Carousel } from "react-responsive-carousel";
 import { useState } from "react";
 import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
 import { useRef } from "react";
-import { delay } from "framer-motion";
+
 const MyCarousel = () => {
   const [showArrow, setShowArrow] = useState(false);
 

@@ -2,12 +2,24 @@ import { NavLink } from "react-router-dom";
 import Header from "./Header";
 import SearchBar from "./SearchBar";
 import PropTypes from "prop-types";
+import { FiSearch } from "react-icons/fi";
+import { useEffect, useState } from "react";
 const NavBar = ({ resultList }) => {
+  const [showSearchBar, setShowSearchBar] = useState(false);
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.screenY < 500) {
+        setShowSearchBar(false);
+      } else {
+        setShowSearchBar(true);
+      }
+    });
+  }, []);
   return (
     <>
       <Header resultList={resultList} />
       <nav className="flex items-center justify-center gap-4 py-3 px-20 bg-red-600 text-white font-bold sticky top-0 z-50">
-        <div className="flex items-center justify-center flex-1 gap-14 py-2 pl-10 uppercase text-md">
+        <div className="flex items-center justify-center flex-1 gap-6 md:gap-10 lg:gap-14 py-2 md:pl-10 uppercase text-md">
           <NavLink
             exact
             to="/"
@@ -37,28 +49,29 @@ const NavBar = ({ resultList }) => {
           >
             About
           </NavLink>
+          <div
+            className="md:hidden cursor-pointer"
+            onClick={() => setShowSearchBar((prev) => !prev)}
+          >
+            <FiSearch color="white" />
+          </div>
         </div>
         <div className="hidden md:block">
           <SearchBar />
         </div>
-
-        <div className="md:hidden block">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="absolute inset-y-0 my-auto h-8 w-12 border-r border-transparent  px-3.5 border-white "
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth="2"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-            />
-          </svg>
-        </div>
       </nav>
+      {showSearchBar && (
+        <div className="md:hidden px-4 flex items-center justify-center gap-1 mt-2 smallScreen">
+          <input
+            type="search"
+            placeholder="Search..."
+            className="px-2 py-2 w-full border border-red-600 text-black bg-transparent rounded outline-none "
+          />
+          <button className="h-full border px-2 py-2 border-red-600 rounded text-red-600 hover:bg-red-600 hover:text-white">
+            Search
+          </button>
+        </div>
+      )}
     </>
   );
 };

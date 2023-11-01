@@ -4,10 +4,10 @@ import afc from "../assets/afc.jpg";
 import leaugecup from "../assets/leauge-cup.jpg";
 import { WiDaySunny } from "react-icons/wi";
 import PropsTypes from "prop-types";
-
+import { Link } from "react-router-dom";
+import ResultCarousel from "./ResultCarousel";
 const Header = ({ resultList }) => {
   function titleImage(title) {
-    // title = title.toUpperCase();
     const logoes = {
       afccup: afc,
       cpl: cpl,
@@ -25,12 +25,54 @@ const Header = ({ resultList }) => {
   }
 
   return (
-    <header className="flex items-center justify-between gap-10 p-4 px-10 bg-white">
-      <div className="w-[80px] h-[80px]">
-        <img className="w-full h-full" src={cpl} alt={cpl} />
+    <header className="flex flex-col gap-3 md:gap-0  p-4 md:px-10 bg-white">
+      <div className="flex items-center justify-between gap-10">
+        <div className="w-[80px] h-[80px] ">
+          <Link to="/">
+            <img className="w-full h-full" src={cpl} alt={cpl} />
+          </Link>
+        </div>
+        <div className="">
+          <div className="hidden md:inline-block md:w-[500px] lg:w-[700px]">
+            <ResultCarousel resultList={resultList} />
+          </div>
+          {/* <marquee className="hidden md:block">
+            <div className="flex gap-7 ">
+              {resultList.map((result) => (
+                <div key={result.id}>
+                  <span className="mr-5 flex items-center gap-2">
+                    {result.teamA}{" "}
+                    <div>
+                      {result.teamAGoal} - {result.teamBGoal}
+                    </div>
+                    {result.teamB} -
+                    <span className="flex items-center gap-1">
+                      {result.title}
+                      {titleImage(result.title) && (
+                        <>
+                          <img
+                            className="h-6 w-6 inline-block mr-5 ml-1"
+                            src={titleImage(result.title)}
+                          />
+                        </>
+                      )}
+                    </span>
+                  </span>
+                </div>
+              ))}
+            </div>
+          </marquee> */}
+        </div>
+        <div>
+          <WiDaySunny className="w-[30px] h-[30px] text-red-600 cursor-pointer" />
+        </div>
       </div>
+
       <div className="flex-1 ">
-        <marquee>
+        <div className="block md:hidden">
+          <ResultCarousel resultList={resultList} />
+        </div>
+        {/* <marquee className="block md:hidden">
           <div className="flex gap-7 ">
             {resultList.map((result) => (
               <div key={result.id}>
@@ -55,10 +97,7 @@ const Header = ({ resultList }) => {
               </div>
             ))}
           </div>
-        </marquee>
-      </div>
-      <div>
-        <WiDaySunny className="w-[30px] h-[30px] text-red-600 cursor-pointer" />
+        </marquee> */}
       </div>
     </header>
   );
