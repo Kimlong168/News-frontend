@@ -1,10 +1,11 @@
 import mission from "../assets/mission.png";
 import vision from "../assets/vision.png";
 import AuthorCard from "../components/AuthorCard";
-const About = () => {
+import { auth } from "../firebase-config";
+const About = ({ authorList }) => {
   return (
-    <div className="container">
-      <div className="flex gap-10 items-center justify-between my-10">
+    <div className="container p-4 md:p-0">
+      <div className="flex flex-col lg:flex-row gap-10 items-center justify-between my-10">
         <div className="flex-1">
           <div className="text-5xl italic text-red-600 pb-1 border-b-4 border-red-600 w-fit hover:w-[100%] transition-all mb-8 cursor-pointer">
             Mission
@@ -24,11 +25,11 @@ const About = () => {
         </div>
       </div>
 
-      <div className="flex gap-10 items-center justify-between my-10">
-        <div className="flex-1 flex">
+      <div className="flex flex-col lg:flex-row gap-10 items-center justify-between my-10">
+        <div className="flex-1 flex order-2 lg:order-1">
           <img className="w-[80%]" src={vision} />
         </div>
-        <div className="flex-1">
+        <div className="flex-1 order-1 lg:order-2">
           <div className="text-5xl italic text-red-600 pb-1 border-b-4 border-red-600 w-fit hover:w-[100%] transition-all mb-8 cursor-pointer">
             Vision
           </div>
@@ -43,17 +44,22 @@ const About = () => {
         </div>
       </div>
 
-      <div>
+      <div className="pb-5">
         <div className="text-5xl italic text-red-600 pb-1 border-b-4 border-red-600 w-fit transition-all mb-8 cursor-pointer  hover:w-[100%]">
           About the Authors
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-5 md:px-0">
-          <AuthorCard />
-          <AuthorCard />
-          <AuthorCard />
-          <AuthorCard />
-          <AuthorCard />
-          <AuthorCard />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-5 px-5 md:px-0 ">
+          {authorList.map((author) => (
+            <>
+              <AuthorCard
+                key={author.id}
+                fullName={author.fullName}
+                profileImage={author.profilePicture}
+                bio={author.bio}
+                links={author.links}
+              />
+            </>
+          ))}
         </div>
       </div>
     </div>

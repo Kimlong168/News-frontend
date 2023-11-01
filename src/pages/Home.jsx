@@ -1,63 +1,59 @@
 import Banner from "../components/Banner";
+import Loading from "../components/Loading";
 import NewsCard from "../components/NewsCard";
 import NewsLabel from "../components/NewsLabel";
-const Home = ({data}) => {
-  
+import PropTypes from "prop-types";
+const Home = ({ postList }) => {
+  console.log("postList-home", postList);
   return (
-    <div className="container mt-16">
-      {/* banner */}
-      <Banner />
+    <>
+      <div className="container mt-16">
+        <Banner />
+        {postList.length == 0 ? (
+          <Loading />
+        ) : (
+          <>
+            <NewsLabel text="Latest News" path="/news" />
 
-      {/* latest news label*/}
-      <NewsLabel text="Latest News" path="/news" />
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-auto gap-7 mt-5">
+              {postList
+                .map((post) => (
+                  <>
+                    <div>
+                      <NewsCard
+                        coverImage="https://cpl.sgp1.cdn.digitaloceanspaces.com/posts/medium/1698033346.png"
+                        title={post.title}
+                        description={post.content}
+                      />
+                    </div>
+                  </>
+                ))
+                .splice(0, 3)}
+            </div>
 
-      {/* news */}
+            <NewsLabel text="Latest Sports News" path="/sport" />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-auto gap-7 mt-5">
-        <NewsCard
-          coverImage="https://cpl.sgp1.cdn.digitaloceanspaces.com/posts/medium/1698033346.png"
-          title="ភ្នំពេញក្រោនត្រូវបន្ដភារកិច្ច AFC CUP នៅថ្ងៃព្រហស្បតិ៍ខាងមុខនេះ"
-          description="ក្រុមភ្នំពេញក្រោនត្រូវបន្ដភារកិច្ច AFC CUP បន្ដទៀតក្រោយយកឈ្នះព្រៃវែងនៃខេមបូឌានព្រីមៀរលីគសប្ដាហ៍ទី៨ ដោយលទ្ធផល ៣ទល់១ ក្នុងកីឡដ្ឋាន Smart R.S.N របស់ខ្លួន។"
-        />
-
-        <NewsCard
-          coverImage="https://cpl.sgp1.cdn.digitaloceanspaces.com/photos/2/photo_2023-10-21_19-43-27.jpg"
-          title="ភ្នំពេញក្រោនត្រូវបន្ដភារកិច្ច AFC CUP នៅថ្ងៃព្រហស្បតិ៍ខាងមុខនេះ"
-          description="ក្រុមភ្នំពេញក្រោនត្រូវបន្ដភារកិច្ច AFC CUP បន្ដទៀតក្រោយយកឈ្នះព្រៃវែងនៃខេមបូឌានព្រីមៀរលីគសប្ដាហ៍ទី៨ ដោយលទ្ធផល ៣ទល់១ ក្នុងកីឡដ្ឋាន Smart R.S.N របស់ខ្លួន។"
-        />
-
-        <NewsCard
-          coverImage="https://cpl.sgp1.cdn.digitaloceanspaces.com/photos/2/236486777_214122244057059_6480584669506690212_n.jpg"
-          title="ភ្នំពេញក្រោនត្រូវបន្ដភារកិច្ច AFC CUP នៅថ្ងៃព្រហស្បតិ៍ខាងមុខនេះ"
-          description="ក្រុមភ្នំពេញក្រោនត្រូវបន្ដភារកិច្ច AFC CUP បន្ដទៀតក្រោយយកឈ្នះព្រៃវែងនៃខេមបូឌានព្រីមៀរលីគសប្ដាហ៍ទី៨ ដោយលទ្ធផល ៣ទល់១ ក្នុងកីឡដ្ឋាន Smart R.S.N របស់ខ្លួន។"
-        />
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-auto gap-7 mt-5">
+              {postList
+                .map((post) => (
+                  <div key={post.id}>
+                    <NewsCard
+                      coverImage="https://cpl.sgp1.cdn.digitaloceanspaces.com/posts/medium/1698033346.png"
+                      title={post.title}
+                      description={post.title}
+                    />
+                  </div>
+                ))
+                .splice(0, 3)}
+            </div>
+          </>
+        )}
       </div>
-
-      <NewsLabel text="Latest Sports News" path="/sport" />
-
-      {/* news */}
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-auto gap-7 mt-5">
-        <NewsCard
-          coverImage="https://cpl.sgp1.cdn.digitaloceanspaces.com/posts/medium/1698033346.png"
-          title="ភ្នំពេញក្រោនត្រូវបន្ដភារកិច្ច AFC CUP នៅថ្ងៃព្រហស្បតិ៍ខាងមុខនេះ"
-          description="ក្រុមភ្នំពេញក្រោនត្រូវបន្ដភារកិច្ច AFC CUP បន្ដទៀតក្រោយយកឈ្នះព្រៃវែងនៃខេមបូឌានព្រីមៀរលីគសប្ដាហ៍ទី៨ ដោយលទ្ធផល ៣ទល់១ ក្នុងកីឡដ្ឋាន Smart R.S.N របស់ខ្លួន។"
-        />
-
-        <NewsCard
-          coverImage="https://cpl.sgp1.cdn.digitaloceanspaces.com/photos/2/photo_2023-10-21_19-43-27.jpg"
-          title="ភ្នំពេញក្រោនត្រូវបន្ដភារកិច្ច AFC CUP នៅថ្ងៃព្រហស្បតិ៍ខាងមុខនេះ"
-          description="ក្រុមភ្នំពេញក្រោនត្រូវបន្ដភារកិច្ច AFC CUP បន្ដទៀតក្រោយយកឈ្នះព្រៃវែងនៃខេមបូឌានព្រីមៀរលីគសប្ដាហ៍ទី៨ ដោយលទ្ធផល ៣ទល់១ ក្នុងកីឡដ្ឋាន Smart R.S.N របស់ខ្លួន។"
-        />
-
-        <NewsCard
-          coverImage="https://cpl.sgp1.cdn.digitaloceanspaces.com/photos/2/236486777_214122244057059_6480584669506690212_n.jpg"
-          title="ភ្នំពេញក្រោនត្រូវបន្ដភារកិច្ច AFC CUP នៅថ្ងៃព្រហស្បតិ៍ខាងមុខនេះ"
-          description="ក្រុមភ្នំពេញក្រោនត្រូវបន្ដភារកិច្ច AFC CUP បន្ដទៀតក្រោយយកឈ្នះព្រៃវែងនៃខេមបូឌានព្រីមៀរលីគសប្ដាហ៍ទី៨ ដោយលទ្ធផល ៣ទល់១ ក្នុងកីឡដ្ឋាន Smart R.S.N របស់ខ្លួន។"
-        />
-      </div>
-    </div>
+    </>
   );
+};
+Home.propTypes = {
+  postList: PropTypes.array.isRequired,
 };
 
 export default Home;

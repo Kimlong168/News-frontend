@@ -38,9 +38,9 @@ const MyCarousel = () => {
         showArrows={false}
         showThumbs={false}
         showStatus={false}
-        infiniteLoop={false}
+        infiniteLoop={true}
         autoPlay={true}
-        interval={4000}
+        interval={3000}
         transitionTime={2000}
         stopOnHover={true}
         selectedItem={currentIndex}

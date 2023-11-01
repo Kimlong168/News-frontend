@@ -5,7 +5,13 @@ import { fadeIn } from "../variants";
 import authorImage from "../assets/kimlong.jpg";
 import { BiSolidUser } from "react-icons/bi";
 import { BsArrowRight } from "react-icons/bs";
-const NewCardWithAuthor = ({ coverImage, title, description }) => {
+const NewCardWithAuthor = ({
+  coverImage,
+  title,
+  description,
+  authorImg,
+  authorName,
+}) => {
   return (
     <motion.div
       variants={fadeIn("right", 0.2)}
@@ -22,11 +28,11 @@ const NewCardWithAuthor = ({ coverImage, title, description }) => {
       </div>
       <div className="-mt-[40px] px-7 flex gap-7 items-end  relative">
         <div className="w-[75px] h-[75px] overflow-hidden">
-          <img className="w-full h-full" src={authorImage} alt="" />
+          <img className="w-full h-full" src={authorImg} alt="" />
         </div>
         <div className="text-sm text-gray-400 flex items-center gap-3">
           <BiSolidUser />
-          Kimlong
+          {authorName}
         </div>
       </div>
 
@@ -34,9 +40,7 @@ const NewCardWithAuthor = ({ coverImage, title, description }) => {
         <div className="line-clamp-2 font-semibold text-2xl my-4 hover:text-yellow-500 transition-all ">
           {title}
         </div>
-        <div className="line-clamp-2 text-sm text-gray-400">
-          {description}
-        </div>
+        <div className="line-clamp-2 text-sm text-gray-400">{description}</div>
         <div className="mt-4">
           <button className="flex items-center gap-2 hover:gap-5 hover:text-yellow-500 transition-all font-light text-sm">
             Continue Reading <BsArrowRight />

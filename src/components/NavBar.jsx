@@ -1,10 +1,11 @@
 import { NavLink } from "react-router-dom";
 import Header from "./Header";
 import SearchBar from "./SearchBar";
-const NavBar = () => {
+import PropTypes from "prop-types";
+const NavBar = ({ resultList }) => {
   return (
     <>
-      <Header />
+      <Header resultList={resultList} />
       <nav className="flex items-center justify-center gap-4 py-3 px-20 bg-red-600 text-white font-bold sticky top-0 z-50">
         <div className="flex items-center justify-center flex-1 gap-14 py-2 pl-10 uppercase text-md">
           <NavLink
@@ -41,7 +42,6 @@ const NavBar = () => {
           <SearchBar />
         </div>
 
-
         <div className="md:hidden block">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -61,6 +61,10 @@ const NavBar = () => {
       </nav>
     </>
   );
+};
+
+NavBar.propTypes = {
+  resultList: PropTypes.array.isRequired,
 };
 
 export default NavBar;

@@ -1,23 +1,41 @@
+import Loading from "../components/Loading";
 import NewCardWithAuthor from "../components/NewCardWithAuthor";
 import { useState } from "react";
-const News = ({ data }) => {
+import PropTypes from "prop-types";
+const News = ({ postList, authorList }) => {
   const [visible, setVisible] = useState(6);
 
   const handleLoadMore = () => {
     setVisible((prev) => prev + 3);
   };
+
+  if (postList.length === 0) {
+    return (
+      <div className="container">
+        <Loading />
+      </div>
+    );
+  }
   return (
     <div className="container mt-16">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-auto gap-7 mt-5">
-        {data.slice(0, visible).map((data) => (
-          <>
-            <NewCardWithAuthor
-              coverImage="https://cpl.sgp1.cdn.digitaloceanspaces.com/posts/medium/1698033346.png"
-              title="ភ្នំពេញក្រោនត្រូវបន្ដភារកិច្ច AFC CUP នៅថ្ងៃព្រហស្បតិ៍ខាងមុខនេះ"
-              description="ក្រុមភ្នំពេញក្រោនត្រូវបន្ដភារកិច្ច AFC CUP បន្ដទៀតក្រោយយកឈ្នះព្រៃវែងនៃខេមបូឌានព្រីមៀរលីគសប្ដាហ៍ទី៨ ដោយលទ្ធផល ៣ទល់១ ក្នុងកីឡដ្ឋាន Smart R.S.N របស់ខ្លួន។"
-            />
-          </>
-        ))}
+        {postList.slice(0, visible).map((data) => {
+          let author = authorList.filter(
+            (author) => author.authorId == data.author.id
+          )[0];
+          console.log("author for card:", author);
+          return (
+            <div key={data.id}>
+              <NewCardWithAuthor
+                coverImage="https://cpl.sgp1.cdn.digitaloceanspaces.com/posts/medium/1698033346.png"
+                title={data.title}
+                description={data.content}
+                authorImg={author.profilePicture}
+                authorName={author.fullName}
+              />
+            </div>
+          );
+        })}
       </div>
       {/* load more */}
       <div className="flex justify-center mt-10">
@@ -30,6 +48,10 @@ const News = ({ data }) => {
       </div>
     </div>
   );
+};
+News.propTypes = {
+  postList: PropTypes.array.isRequired,
+  authorList: PropTypes.array.isRequired,
 };
 
 export default News;

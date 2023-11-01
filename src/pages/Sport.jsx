@@ -1,15 +1,24 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import NewCardWithAuthor from "../components/NewCardWithAuthor";
-const Sport = ({ data }) => {
+import Loading from "../components/Loading";
+import PropTypes from "prop-types";
+const Sport = ({ postList }) => {
   const [visible, setVisible] = useState(6);
 
   const handleLoadMore = () => {
     setVisible((prev) => prev + 3);
   };
+  if (postList.length === 0) {
+    return (
+      <div className="container">
+        <Loading />
+      </div>
+    );
+  }
   return (
     <div className="container mt-16">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-auto gap-7 mt-5">
-        {data.slice(0, visible).map((data) => (
+        {postList.slice(0, visible).map((data) => (
           <>
             <NewCardWithAuthor
               coverImage="https://cpl.sgp1.cdn.digitaloceanspaces.com/posts/medium/1698033346.png"
@@ -31,5 +40,7 @@ const Sport = ({ data }) => {
     </div>
   );
 };
-
+Sport.propTypes = {
+  postList: PropTypes.array.isRequired,
+};
 export default Sport;
