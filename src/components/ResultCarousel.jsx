@@ -33,7 +33,7 @@ const ResultCarousel = ({ resultList }) => {
         showThumbs={false}
         showStatus={false}
         stopOnHover={true}
-        interval={2000}
+        interval={4000}
         transitionTime={500}
       >
         {resultList.map((result) => (

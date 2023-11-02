@@ -1,11 +1,11 @@
 import svr from "../assets/svayrieng.png";
-import cpl from "../assets/league_1.png";
+// import cpl from "../assets/league_1.png";
 import nagaworld from "../assets/nagaworld.png";
 import army from "../assets/army.png";
 import visakha from "../assets/visakha.png";
 import crown from "../assets/crown.png";
-import ucl from "../assets/ucl.jpg";
-import afc from "../assets/afc.jpg";
+// import ucl from "../assets/ucl.jpg";
+// import afc from "../assets/afc.jpg";
 import leaugecup from "../assets/leauge-cup.jpg";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
@@ -74,7 +74,7 @@ const MyCarousel = ({ todayMatchList }) => {
 
   return (
     <div
-      className="relative w-[350px] sm:w-[500px] md:w-[600px] lg:w-[900px] xl:w-[1240px] py-[20px] pt-[30px]"
+      className="relative w-[350px] sm:w-[500px] md:w-[600px] lg:w-[900px] xl:w-[1240px] py-[20px] pt-[30px] "
       onMouseOver={() => setShowArrow(true)}
       onMouseLeave={() => {
         setTimeout(() => setShowArrow(false), 4000);

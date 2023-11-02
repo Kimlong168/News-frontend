@@ -8,8 +8,34 @@
         background-color: #f3f0f0;
     }
 
-    .section {
-        @apply lg:h-screen flex items-center;
+    p {
+        @apply my-[16px] mx-0;
     }
+
+    h3 {
+        @apply font-bold text-2xl lg:text-3xl;
+    }
+
+    ul {
+        @apply list-disc;
+        /* list-style-type: circle; */
+        margin-left: 20px; 
+    }
+
+    ol {
+        @apply list-decimal;
+    }
+
+    code {
+        border-left: 3px solid rgb(154, 152, 152);
+        padding-left: 15px;
+        /* font-family: "Courier New", Courier, monospace !important; */
+        font-style: italic;
+        /* background-color: rgba(164, 157, 157, 0.307); */
+        @apply font-medium;
+    }
+
+ 
+
 
 }

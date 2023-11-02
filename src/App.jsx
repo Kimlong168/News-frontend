@@ -65,7 +65,10 @@ export default function App() {
             element={<Sport postList={postList} authorList={authorList} />}
           />
           <Route path="/about" element={<About authorList={authorList} />} />
-          <Route path="/detail/:id" element={<DetailContent />} />
+          <Route
+            path="/detail/:id"
+            element={<DetailContent authorList={authorList} />}
+          />
           <Route path="*" element={<Error404 />} />
         </Routes>
         <Footer />

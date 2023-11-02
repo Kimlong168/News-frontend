@@ -1,6 +1,4 @@
-import { Link } from "react-router-dom";
-import { FaTiktok } from "react-icons/fa";
-import kimlong from "../assets/kimlong.jpg";
+
 import LinkIcon from "./LinkIcon";
 // motion
 import { motion } from "framer-motion";

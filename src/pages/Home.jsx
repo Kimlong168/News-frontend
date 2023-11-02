@@ -5,18 +5,18 @@ import NewsLabel from "../components/NewsLabel";
 import bannerAds from "../assets/banner-ads.png";
 import Carousel from "../components/Carousel";
 import PropTypes from "prop-types";
-const Home = ({ postList,todayMatchList }) => {
+const Home = ({ postList, todayMatchList }) => {
   console.log("postList-home", postList);
   return (
     <>
       <div className="container mt-16">
-        <div className=" shadow-xl border grid place-items-center font-bold  bg-white">
-          <Carousel todayMatchList={todayMatchList}/>
-        </div>
         {postList.length == 0 ? (
           <Loading />
         ) : (
           <>
+            <div className=" shadow-xl border grid place-items-center font-bold  bg-white mx-2 md:mx-0">
+              <Carousel todayMatchList={todayMatchList} />
+            </div>
             <NewsLabel text="Latest News" path="/news" />
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-auto gap-7 mt-5">
