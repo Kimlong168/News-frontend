@@ -33,7 +33,7 @@ const Header = ({ resultList }) => {
           </Link>
         </div>
         <div className="">
-          <div className="hidden md:inline-block md:w-[500px] lg:w-[700px]">
+          <div className="hidden md:block md:w-[500px] lg:w-[700px]">
             <ResultCarousel resultList={resultList} />
           </div>
           {/* <marquee className="hidden md:block">

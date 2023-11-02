@@ -22,13 +22,13 @@ const NewCardWithAuthor = ({
     >
       <div className="w-full h-[240px] overflow-hidden">
         <img
-          className="w-full h-full hover:scale-110 transition-all "
+          className="w-full h-full  hover:scale-110 transition-all "
           src={coverImage}
         />
       </div>
       <div className="-mt-[40px] px-7 flex gap-7 items-end  relative">
         <div className="w-[75px] h-[75px] overflow-hidden">
-          <img className="w-full h-full" src={authorImg} alt="" />
+          <img className="w-full h-full cover" src={authorImg} alt="" />
         </div>
         <div className="text-sm text-gray-400 flex items-center gap-3">
           <BiSolidUser />

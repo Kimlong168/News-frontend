@@ -24,12 +24,12 @@ function titleImage(title) {
 }
 const ResultCarousel = ({ resultList }) => {
   return (
-    <div className="relative">
+    <div className="relative h-full">
       <Carousel
         infiniteLoop={true}
         autoPlay={true}
         showIndicators={false}
-        showArrows={false}
+        showArrows={true}
         showThumbs={false}
         showStatus={false}
         stopOnHover={true}
@@ -37,8 +37,8 @@ const ResultCarousel = ({ resultList }) => {
         transitionTime={500}
       >
         {resultList.map((result) => (
-          <div key={result.id}>
-            <span className="flex flex-col md:flex-row justify-center items-center gap-2">
+          <div key={result.id} className="w-full h-[50px] grid place-items-center">
+            <span className="flex flex-col md:flex-row justify-center items-center ">
               <div className="flex gap-3">
                 {result.teamA}
                 <div>

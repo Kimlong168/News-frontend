@@ -10,11 +10,10 @@ input[type="search"]::placeholder {
 
 /* customCarouselStyles.css */
 /* Center the previous (left) arrow */
-.carousel .control-prev.control-arrow {
+/* .carousel .control-prev.control-arrow {
     width: 40px;
     height: 40px;
     background-color: #eecf00 ;
-    /* Replace with your desired color */
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -22,18 +21,15 @@ input[type="search"]::placeholder {
     position: absolute;
     top: 50%;
     left: 2%;
-    /* Adjust the distance from the edge of the carousel */
     transform: translateY(-50%);
     transition: background-color 0.3s;
 
 }
 
-/* Center the next (right) arrow */
 .carousel .control-next.control-arrow {
     width: 40px;
     height: 40px;
     background-color: #eecf00 ;
-    /* Replace with your desired color */
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -41,11 +37,10 @@ input[type="search"]::placeholder {
     position: absolute;
     top: 50%;
     right: 2%;
-    /* Adjust the distance from the edge of the carousel */
     transform: translateY(-50%);
     transition: background-color 0.3s;
 
-}
+} */
 
 .custom-indicator-color .dot {
     background-color: #ecc30f !important;

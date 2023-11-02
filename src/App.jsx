@@ -3,7 +3,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import News from "./pages/News";
 import Sport from "./pages/Sport";
-import NewDetail from "./pages/NewDetail";
+import Error404 from "./pages/Error404";
 import "./App.css";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
@@ -11,6 +11,7 @@ import Footer from "./components/Footer";
 import { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "./firebase-config";
+import DetailContent from "./pages/DetailContent";
 export default function App() {
   const [postList, setPostList] = useState([]);
   const [authorList, setAuthorList] = useState([]);
@@ -49,7 +50,12 @@ export default function App() {
       <Router>
         <NavBar resultList={resultList} />
         <Routes>
-          <Route path="/" element={<Home postList={postList} />} />
+          <Route
+            path="/"
+            element={
+              <Home postList={postList} todayMatchList={todayMatchList} />
+            }
+          />
           <Route
             path="/news"
             element={<News postList={postList} authorList={authorList} />}
@@ -59,7 +65,8 @@ export default function App() {
             element={<Sport postList={postList} authorList={authorList} />}
           />
           <Route path="/about" element={<About authorList={authorList} />} />
-          <Route path="/detail/:id" element={<NewDetail />} />
+          <Route path="/detail/:id" element={<DetailContent />} />
+          <Route path="*" element={<Error404 />} />
         </Routes>
         <Footer />
       </Router>

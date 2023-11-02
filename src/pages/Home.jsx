@@ -1,14 +1,18 @@
-import Banner from "../components/Banner";
+import { Link } from "react-router-dom";
 import Loading from "../components/Loading";
 import NewsCard from "../components/NewsCard";
 import NewsLabel from "../components/NewsLabel";
+import bannerAds from "../assets/banner-ads.png";
+import Carousel from "../components/Carousel";
 import PropTypes from "prop-types";
-const Home = ({ postList }) => {
+const Home = ({ postList,todayMatchList }) => {
   console.log("postList-home", postList);
   return (
     <>
       <div className="container mt-16">
-        <Banner />
+        <div className=" shadow-xl border grid place-items-center font-bold  bg-white">
+          <Carousel todayMatchList={todayMatchList}/>
+        </div>
         {postList.length == 0 ? (
           <Loading />
         ) : (
@@ -19,12 +23,14 @@ const Home = ({ postList }) => {
               {postList
                 .map((post) => (
                   <>
-                    <div>
-                      <NewsCard
-                        coverImage={post.img}
-                        title={post.title}
-                        description={post.description}
-                      />
+                    <div key={post.id}>
+                      <Link to={`/detail/${post.id}`}>
+                        <NewsCard
+                          coverImage={post.img}
+                          title={post.title}
+                          description={post.description}
+                        />
+                      </Link>
                     </div>
                   </>
                 ))
@@ -37,14 +43,20 @@ const Home = ({ postList }) => {
               {postList
                 .map((post) => (
                   <div key={post.id}>
-                    <NewsCard
-                      coverImage={post.img}
-                      title={post.title}
-                      description={post.description}
-                    />
+                    <Link to={`/detail/${post.id}`}>
+                      <NewsCard
+                        coverImage={post.img}
+                        title={post.title}
+                        description={post.description}
+                      />
+                    </Link>
                   </div>
                 ))
                 .splice(0, 3)}
+            </div>
+
+            <div className="mt-10">
+              <img src={bannerAds} alt="" />
             </div>
           </>
         )}
@@ -54,6 +66,7 @@ const Home = ({ postList }) => {
 };
 Home.propTypes = {
   postList: PropTypes.array.isRequired,
+  todayMatchList: PropTypes.array.isRequired,
 };
 
 export default Home;

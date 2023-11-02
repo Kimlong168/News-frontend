@@ -3,6 +3,8 @@ import NewCardWithAuthor from "../components/NewCardWithAuthor";
 import Loading from "../components/Loading";
 import PropTypes from "prop-types";
 import { AiOutlineArrowRight } from "react-icons/ai";
+import GoToTop from "../components/GoToTop";
+import { Link } from "react-router-dom";
 const Sport = ({ postList, authorList }) => {
   const [visible, setVisible] = useState(3);
 
@@ -26,19 +28,21 @@ const Sport = ({ postList, authorList }) => {
           console.log("author for card:", author);
           return (
             <div key={data.id}>
-              <NewCardWithAuthor
-                coverImage={data.img}
-                title={data.title}
-                description={data.description}
-                authorImg={author.profilePicture}
-                authorName={author.fullName}
-              />
+              <Link to={`/detail/${data.id}`}>
+                <NewCardWithAuthor
+                  coverImage={data.img}
+                  title={data.title}
+                  description={data.description}
+                  authorImg={author.profilePicture}
+                  authorName={author.fullName}
+                />
+              </Link>
             </div>
           );
         })}
       </div>
       {/* load more */}
-      {visible < postList.length && (
+      {visible < postList.length ? (
         <div className="flex justify-center mt-10">
           <button
             onClick={() => handleLoadMore(3)}
@@ -53,6 +57,8 @@ const Sport = ({ postList, authorList }) => {
             Load More <AiOutlineArrowRight />
           </button>
         </div>
+      ) : (
+        <GoToTop />
       )}
     </div>
   );
