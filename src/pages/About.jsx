@@ -5,13 +5,13 @@ import AuthorCard from "../components/AuthorCard";
 import { motion } from "framer-motion";
 // vartants
 import { fadeIn } from "../variants";
-import { auth } from "../firebase-config";
+import PropTypes from "prop-types";
 const About = ({ authorList }) => {
   return (
-    <div className="container p-4 md:p-0">
+    <div className="container p-4 md:p-0 overflow-hidden">
       <div className="flex flex-col lg:flex-row gap-10 items-center justify-between my-10">
         <div className="flex-1">
-          <div className="text-5xl italic text-red-600 pb-1 border-b-4 border-red-600 w-fit hover:w-[100%] transition-all mb-8 cursor-pointer">
+          <div className=" text-3xl font-bold  italic text-red-600 pb-1 border-b-4 border-red-600 w-fit hover:w-[100%] transition-all mb-8 cursor-pointer">
             Mission
           </div>
           <p className="text-lg">
@@ -46,7 +46,7 @@ const About = ({ authorList }) => {
           <img className="w-[80%]" src={vision} />
         </motion.div>
         <div className="flex-1 order-1 lg:order-2">
-          <div className="text-5xl italic text-red-600 pb-1 border-b-4 border-red-600 w-fit hover:w-[100%] transition-all mb-8 cursor-pointer">
+          <div className="text-3xl font-bold italic text-red-600 pb-1 border-b-4 border-red-600 w-fit hover:w-[100%] transition-all mb-8 cursor-pointer">
             Vision
           </div>
           <p className="text-lg">
@@ -61,7 +61,7 @@ const About = ({ authorList }) => {
       </div>
 
       <div className="pb-5">
-        <div className="text-5xl italic text-red-600 pb-1 border-b-4 border-red-600 w-fit transition-all mb-8 cursor-pointer  hover:w-[100%]">
+        <div className="text-3xl font-bold italic text-red-600 pb-1 border-b-4 border-red-600 w-fit transition-all mb-8 cursor-pointer  hover:w-[100%]">
           About the Authors
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-5 px-5 md:px-0 ">
@@ -81,5 +81,7 @@ const About = ({ authorList }) => {
     </div>
   );
 };
-
+About.propTypes = {
+  authorList: PropTypes.array.isRequired,
+};
 export default About;

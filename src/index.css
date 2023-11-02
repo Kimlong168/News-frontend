@@ -19,7 +19,7 @@
     ul {
         @apply list-disc;
         /* list-style-type: circle; */
-        margin-left: 20px; 
+        margin-left: 20px;
     }
 
     ol {
@@ -35,7 +35,9 @@
         @apply font-medium;
     }
 
- 
+    #markdown a {
+        color: rgba(64, 0, 255, 0.935);
+    }
 
 
 }

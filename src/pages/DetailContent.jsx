@@ -59,11 +59,11 @@ const DetailContent = ({ authorList }) => {
     );
   return (
     <>
-      <div className="container p-4 md:p-0 min-h-screen">
-        <div className=" flex flex-col md:flex-row gap-2 mt-5 ">
+      <div className="container px-4 md:p-0 min-h-screen">
+        <div className=" flex flex-col md:flex-row gap-2 mt-3 md:mt-5 ">
           <div className="w-full md:w-[75%] mt-4 bg-white shadow-xl p-6 min-h-screen">
             <div className="text-gray-900 font-bold text-3xl">{data.title}</div>
-            <div className="flex items-center gap-8 py-5">
+            <div className="flex items-center gap-5 md:gap-8 py-5">
               <div className="flex items-center gap-2">
                 <LuCalendarDays />
                 {data.date}
@@ -76,7 +76,7 @@ const DetailContent = ({ authorList }) => {
             <div className="mb-5 w-full">
               <img className="w-full" src={data.img} alt="" />
             </div>
-            <div className="break-words">
+            <div id="markdown" className="break-words">
               <Markdown>{data.content}</Markdown>
             </div>
             <div className="mt-10 mb-5">

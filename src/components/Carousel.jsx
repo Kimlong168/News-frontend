@@ -20,7 +20,7 @@ const MyCarousel = ({ todayMatchList }) => {
   const carouselRef = useRef(null);
 
   const moveCarousel = (direction) => {
-    const totalSlides = 3;
+    const totalSlides = todayMatchList.length;
     let newIndex = currentIndex + (direction === "next" ? 1 : -1);
 
     if (newIndex >= totalSlides) {
@@ -74,25 +74,72 @@ const MyCarousel = ({ todayMatchList }) => {
 
   return (
     <div
-      className="relative w-[350px] sm:w-[500px] md:w-[600px] lg:w-[900px] xl:w-[1240px] py-[20px] pt-[30px] "
+      className="relative w-[350px] sm:w-[500px] md:w-[600px] lg:w-[900px] xl:w-[1240px] py-[20px] pt-[30px] md:pt-[30px] "
       onMouseOver={() => setShowArrow(true)}
       onMouseLeave={() => {
-        setTimeout(() => setShowArrow(false), 4000);
+        setTimeout(() => setShowArrow(false), 8000);
       }}
     >
       <Carousel
-        className="custom-indicator-color"
+        className="custom-indicator-color hidden md:block"
         showIndicators={true}
         showArrows={false}
         showThumbs={false}
         showStatus={false}
-        infiniteLoop={false}
+        infiniteLoop={true}
         autoPlay={true}
         interval={4000}
-        transitionTime={2000}
+        transitionTime={500}
         stopOnHover={true}
         selectedItem={currentIndex}
         ref={carouselRef}
+      >
+        {todayMatchList.map((match) => (
+          <div
+            key={match.id}
+            className="w-full h-fullflex flex-col gap-1 justify-center items-center uppercase mb-[40px]"
+          >
+            <div className="">
+              <div className="text-lg">{match.date}</div>
+              <div className="text-md">{match.time}</div>
+            </div>
+            <div className="flex gap-10 md:gap-24 items-center justify-center">
+              <div className="w-[100px]">
+                <img
+                  className="w-[100px] h-[100px] cover mb-2"
+                  src={titleImage(match.teamA)}
+                  alt=""
+                />
+                <div> {match.teamA}</div>
+              </div>
+              <div>
+                <div className="text-xl">VS</div>
+                <div>{match.liveOn}</div>
+              </div>
+              <div className="w-[100px] ">
+                <img
+                  className="w-[100px] h-[100px] cover mb-2"
+                  src={titleImage(match.teamB)}
+                  alt=""
+                />
+                <div> {match.teamB}</div>
+              </div>
+            </div>
+            <div>{match.staudim}</div>
+          </div>
+        ))}
+      </Carousel>
+      <Carousel
+        className="custom-indicator-color md:hidden "
+        showIndicators={true}
+        showArrows={true}
+        showThumbs={false}
+        showStatus={false}
+        infiniteLoop={true}
+        autoPlay={true}
+        interval={4000}
+        transitionTime={500}
+        stopOnHover={true}
       >
         {todayMatchList.map((match) => (
           <div
