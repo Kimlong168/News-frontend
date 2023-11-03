@@ -18,7 +18,7 @@ const NewCardWithAuthor = ({
       initial="hidden"
       whileInView={"show"}
       viewport={{ once: true, amount: 0.3 }}
-      className="mb-2 cursor-pointer shadow-xl md:h-[500px]"
+      className="mb-2 cursor-pointer shadow-xl md:h-[500px] bg-white"
     >
       <div className="w-full h-[240px] overflow-hidden">
         <img

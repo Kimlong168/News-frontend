@@ -67,7 +67,10 @@ const NavBar = ({ resultList }) => {
             placeholder="Search..."
             className="px-2 py-2 w-full border border-red-600 text-black bg-transparent rounded outline-none "
           />
-          <button className="h-full border px-2 py-2 border-red-600 rounded text-red-600 hover:bg-red-600 hover:text-white">
+          <button
+            onClick={() => alert("Sorry! This feature is under maintenance...")}
+            className="h-full border px-2 py-2 border-red-600 rounded text-red-600 hover:bg-red-600 hover:text-white"
+          >
             Search
           </button>
         </div>

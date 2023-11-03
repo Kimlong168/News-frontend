@@ -56,7 +56,7 @@ const Home = ({ postList, todayMatchList }) => {
                     </Link>
                   </div>
                 ))
-                .splice(0, 3)}
+                .splice(3, 3)}
             </div>
 
             <div className="mt-10">
