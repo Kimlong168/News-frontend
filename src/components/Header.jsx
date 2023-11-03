@@ -1,4 +1,5 @@
 import cpl from "../assets/league_1.png";
+import logo from "../assets/logo_boyloy.jpg";
 // import ucl from "../assets/ucl.jpg";
 // import afc from "../assets/afc.jpg";
 // import leaugecup from "../assets/leauge-cup.jpg";
@@ -29,7 +30,7 @@ const Header = ({ resultList }) => {
       <div className="flex items-center justify-between gap-10">
         <div className="w-[80px] h-[80px] ">
           <Link to="/">
-            <img className="w-full h-full" src={cpl} alt={cpl} />
+            <img className="w-full h-full" src={logo} alt={cpl} />
           </Link>
         </div>
         <div className="">
