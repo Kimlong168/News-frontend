@@ -2,7 +2,7 @@ import { doc, getDoc } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { db } from "../firebase-config";
-import Markdown from "react-markdown";
+import Markdown from 'markdown-to-jsx'
 import Loading from "../components/Loading";
 import { BiSolidUser } from "react-icons/bi";
 import { LuCalendarDays } from "react-icons/lu";

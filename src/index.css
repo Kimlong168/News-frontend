@@ -39,5 +39,11 @@
         color: rgba(64, 0, 255, 0.935);
     }
 
+    #markdown img {
+        margin: 10px auto;
+        width: 100% !important;
+    }
+
+
 
 }
