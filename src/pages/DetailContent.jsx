@@ -60,8 +60,8 @@ const DetailContent = ({ authorList }) => {
   return (
     <>
       <Helmet>
-        <meta property="og:image" content={data.img} />
-        <meta name="og:description" content={data.description} />
+        {/* <meta property="og:image" content={data.img} />
+        <meta name="og:description" content={data.description} /> */}
         <title>K-Newz | {data.title}</title>
       </Helmet>
       <div className="container px-4 md:p-0 min-h-screen">
