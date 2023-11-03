@@ -6,9 +6,13 @@ import { motion } from "framer-motion";
 // vartants
 import { fadeIn } from "../variants";
 import PropTypes from "prop-types";
+import { Helmet } from "react-helmet";
 const About = ({ authorList }) => {
   return (
     <div className="container p-4 md:p-0 overflow-hidden">
+      <Helmet>
+        <title>K-Newz | About</title>
+      </Helmet>
       <div className="flex flex-col lg:flex-row gap-10 items-center justify-between my-10">
         <div className="flex-1">
           <div className=" text-3xl font-bold  italic text-red-600 pb-1 border-b-4 border-red-600 w-fit hover:w-[100%] transition-all mb-8 cursor-pointer">

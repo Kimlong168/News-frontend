@@ -5,10 +5,14 @@ import NewsLabel from "../components/NewsLabel";
 import bannerAds from "../assets/banner-ads.png";
 import Carousel from "../components/Carousel";
 import PropTypes from "prop-types";
+import { Helmet } from "react-helmet";
 const Home = ({ postList, todayMatchList }) => {
   console.log("postList-home", postList);
   return (
     <>
+      <Helmet>
+        <title>K-Newz Official</title>
+      </Helmet>
       <div className="container mt-16">
         {postList.length == 0 ? (
           <Loading />

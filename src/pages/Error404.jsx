@@ -1,12 +1,12 @@
+import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 const Error404 = () => {
-
   return (
     <div>
-      <div
-        className="bg-errorPage flex items-center justify-center min-h-screen  bg-fixed bg-cover bg-bottom error-bg"
-
-      >
+      <Helmet>
+        <title>K-Newz | Error page not found!</title>
+      </Helmet>
+      <div className="bg-errorPage flex items-center justify-center min-h-screen  bg-fixed bg-cover bg-bottom error-bg">
         <div className="container">
           <div className="row">
             <div className="col-sm-8 offset-sm-2 text-red-600 text-center -mt-52">

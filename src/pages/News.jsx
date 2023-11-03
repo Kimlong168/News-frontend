@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import GoToTop from "../components/GoToTop";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 const News = ({ postList, authorList }) => {
   const [visible, setVisible] = useState(3);
 
@@ -21,6 +22,9 @@ const News = ({ postList, authorList }) => {
   }
   return (
     <div className="container mt-16">
+      <Helmet>
+        <title>K-Newz | News</title>
+      </Helmet>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-auto gap-7 mt-5">
         {postList.slice(0, visible).map((data) => {
           let author = authorList.filter(

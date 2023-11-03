@@ -2,9 +2,9 @@
 import { motion } from "framer-motion";
 // vartants
 import { fadeIn } from "../variants";
-import authorImage from "../assets/kimlong.jpg";
 import { BiSolidUser } from "react-icons/bi";
 import { BsArrowRight } from "react-icons/bs";
+import PropType from "prop-types";
 const NewCardWithAuthor = ({
   coverImage,
   title,
@@ -50,5 +50,11 @@ const NewCardWithAuthor = ({
     </motion.div>
   );
 };
-
+NewCardWithAuthor.propTypes = {
+  coverImage: PropType.string,
+  title: PropType.string,
+  description: PropType.string,
+  authorImg: PropType.string,
+  authorName: PropType.string,
+};
 export default NewCardWithAuthor;
