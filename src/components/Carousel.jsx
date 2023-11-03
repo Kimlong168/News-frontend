@@ -137,7 +137,7 @@ const MyCarousel = ({ todayMatchList }) => {
         showStatus={false}
         infiniteLoop={true}
         autoPlay={true}
-        interval={4000}
+        interval={3000}
         transitionTime={500}
         stopOnHover={true}
       >

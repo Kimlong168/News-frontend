@@ -1,9 +1,9 @@
-
 import LinkIcon from "./LinkIcon";
 // motion
 import { motion } from "framer-motion";
 // vartants
 import { fadeIn } from "../variants";
+import PropType from "prop-types";
 const AuthorCard = ({ fullName, profileImage, bio, links }) => {
   return (
     <motion.div
@@ -48,5 +48,10 @@ const AuthorCard = ({ fullName, profileImage, bio, links }) => {
     </motion.div>
   );
 };
-
+AuthorCard.propTypes = {
+  fullName: PropType.string,
+  profileImage: PropType.string,
+  bio: PropType.string,
+  links: PropType.array,
+};
 export default AuthorCard;

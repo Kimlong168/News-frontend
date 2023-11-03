@@ -1,7 +1,7 @@
 // import { TbMathGreater } from "react-icons/tb";
 import {BiSolidRightArrow} from "react-icons/bi"
 import { Link } from "react-router-dom";
-
+import PropTypes from "prop-types";
 const NewsLabel = ({ text, path }) => {
   return (
     <div>
@@ -20,5 +20,8 @@ const NewsLabel = ({ text, path }) => {
     </div>
   );
 };
-
+NewsLabel.propTypes = {
+  text: PropTypes.string.isRequired,
+  path: PropTypes.string.isRequired,
+};
 export default NewsLabel;

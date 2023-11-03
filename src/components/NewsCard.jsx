@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 // vartants
 import { fadeIn } from "../variants";
+import PropType from "prop-types";
 const NewsCard = ({ coverImage, title, description }) => {
   return (
     <motion.div
@@ -26,5 +27,9 @@ const NewsCard = ({ coverImage, title, description }) => {
     </motion.div>
   );
 };
-
+NewsCard.propTypes = {
+  coverImage: PropType.string,
+  title: PropType.string,
+  description: PropType.string,
+};
 export default NewsCard;

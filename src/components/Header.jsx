@@ -1,28 +1,28 @@
 import cpl from "../assets/league_1.png";
-import ucl from "../assets/ucl.jpg";
-import afc from "../assets/afc.jpg";
-import leaugecup from "../assets/leauge-cup.jpg";
+// import ucl from "../assets/ucl.jpg";
+// import afc from "../assets/afc.jpg";
+// import leaugecup from "../assets/leauge-cup.jpg";
 import { WiDaySunny } from "react-icons/wi";
 import PropsTypes from "prop-types";
 import { Link } from "react-router-dom";
 import ResultCarousel from "./ResultCarousel";
 const Header = ({ resultList }) => {
-  function titleImage(title) {
-    const logoes = {
-      afccup: afc,
-      cpl: cpl,
-      ucl: ucl,
-      leaugecup: leaugecup,
-    };
+  // function titleImage(title) {
+  //   const logoes = {
+  //     afccup: afc,
+  //     cpl: cpl,
+  //     ucl: ucl,
+  //     leaugecup: leaugecup,
+  //   };
 
-    let lowerTitle = title.toLowerCase();
-    lowerTitle = lowerTitle.replace("-", "");
-    const logo = logoes[lowerTitle.trim()];
-    if (logo) {
-      return logo;
-    }
-    return null;
-  }
+  //   let lowerTitle = title.toLowerCase();
+  //   lowerTitle = lowerTitle.replace("-", "");
+  //   const logo = logoes[lowerTitle.trim()];
+  //   if (logo) {
+  //     return logo;
+  //   }
+  //   return null;
+  // }
 
   return (
     <header className="flex flex-col gap-3 md:gap-0  p-4 md:px-10 bg-white">

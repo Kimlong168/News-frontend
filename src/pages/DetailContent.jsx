@@ -1,5 +1,5 @@
 import { doc, getDoc } from "firebase/firestore";
-import { useEffect, useState, useNavigate } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { db } from "../firebase-config";
 import Markdown from "react-markdown";
@@ -10,16 +10,16 @@ import Author from "../components/Author";
 import PropType from "prop-types";
 import SharingBtn from "../components/SharingBtn";
 import GoToTop from "../components/GoToTop";
-// import BackToPrevBtn from "../components/BackToPrevBtn";
+import BackToPrevBtn from "../components/BackToPrevBtn";
+import { Helmet } from "react-helmet";
 const DetailContent = ({ authorList }) => {
   const { id: postParam } = useParams();
 
   const [data, setData] = useState(null);
   const [author, setAuthor] = useState(null);
 
-
   const currentURL = window.location.href;
-
+  const prevUrl = window.history.state.prevUrl;
   useEffect(() => {
     const docRef = doc(db, "posts", postParam);
 
@@ -59,6 +59,11 @@ const DetailContent = ({ authorList }) => {
     );
   return (
     <>
+      <Helmet>
+        <meta property="og:image" content={data.img} />
+        <meta name="og:description" content={data.description} />
+        <title>K-Newz | {data.title}</title>
+      </Helmet>
       <div className="container px-4 md:p-0 min-h-screen">
         <div className=" flex flex-col md:flex-row gap-2 mt-3 md:mt-5 ">
           <div className="w-full md:w-[75%] mt-4 bg-white shadow-xl p-6 min-h-screen">
@@ -98,7 +103,7 @@ const DetailContent = ({ authorList }) => {
             <span className="md:rotate-90">SPONSOR</span>
           </div>
         </div>
-        {/* <BackToPrevBtn previousUrl={handleGoBack} /> */}
+        <BackToPrevBtn previousUrl={prevUrl} />
         {/* goto top */}
         <GoToTop />
       </div>
