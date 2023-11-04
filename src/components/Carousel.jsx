@@ -1,12 +1,20 @@
 import svr from "../assets/svayrieng.png";
-// import cpl from "../assets/league_1.png";
+import cpl from "../assets/league_1.png";
 import nagaworld from "../assets/nagaworld.png";
 import army from "../assets/army.png";
 import visakha from "../assets/visakha.png";
 import crown from "../assets/crown.png";
+import isi from "../assets/isi.png";
+import boeungket from "../assets/boeungket.png";
+import tiger from "../assets/tiger.png";
+import siemreap from "../assets/siemreap.png";
+import shv from "../assets/shv.png";
+import nfa from "../assets/nfa.png";
+import preyveng from "../assets/preyveng.png";
+import kirivong from "../assets/kirivong.png";
 // import ucl from "../assets/ucl.jpg";
 // import afc from "../assets/afc.jpg";
-import leaugecup from "../assets/leauge-cup.jpg";
+// import leaugecup from "../assets/leauge-cup.jpg";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 import { useState } from "react";
@@ -39,8 +47,17 @@ const MyCarousel = ({ todayMatchList }) => {
       { key: "visakha", value: visakha },
       { key: "nagaworld", value: nagaworld },
       { key: "crown", value: crown },
+      { key: "boeungket", value: boeungket },
       { key: "army", value: army },
-      { key: "fc", value: leaugecup },
+      { key: "isi", value: isi },
+      { key: "tiger", value: tiger },
+      { key: "preyveng", value: preyveng },
+      { key: "siemreap", value: siemreap },
+      { key: "shv", value: shv },
+      { key: "kirivong", value: kirivong },
+      { key: "nfa", value: nfa },
+
+      { key: "fc", value: cpl },
     ];
 
     // const searchText = "phnompenh crown";
