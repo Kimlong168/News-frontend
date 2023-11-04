@@ -127,7 +127,7 @@ const MyCarousel = ({ todayMatchList }) => {
                   src={titleImage(match.teamA)}
                   alt=""
                 />
-                <div> {match.teamA}</div>
+                <div className="line-clamp-2"> {match.teamA}</div>
               </div>
               <div>
                 <div className="text-3xl">VS</div>
@@ -139,7 +139,7 @@ const MyCarousel = ({ todayMatchList }) => {
                   src={titleImage(match.teamB)}
                   alt=""
                 />
-                <div> {match.teamB}</div>
+                <div className="line-clamp-2"> {match.teamB}</div>
               </div>
             </div>
             <div className="text-sm">{match.staduim}</div>
