@@ -1,17 +1,35 @@
 import Loading from "../components/Loading";
 import NewCardWithAuthor from "../components/NewCardWithAuthor";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import GoToTop from "../components/GoToTop";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
-const News = ({ postList, authorList }) => {
+const News = ({ postList, authorList, categoryList }) => {
   const [visible, setVisible] = useState(3);
-
+  const [newsList, setNewsList] = useState([]);
   const handleLoadMore = (numberToShow) => {
     setVisible((prev) => prev + numberToShow);
   };
+
+  useEffect(() => {
+    const categorySport = categoryList.map((data) => {
+      if (
+        data.categoryName.toLowerCase() == "sport" ||
+        data.categoryName.toLowerCase() == "sports"
+      ) {
+        return data.id;
+      }
+    })[0];
+    const elements = postList.map((data) => {
+      if (data.categoryId != categorySport) {
+        return data;
+      }
+    });
+
+    setNewsList(elements.filter((data) => data)); //filter the undefined data
+  }, [postList, categoryList]);
 
   if (postList.length === 0) {
     return (
@@ -26,7 +44,7 @@ const News = ({ postList, authorList }) => {
         <title>K-Newz | News</title>
       </Helmet>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-auto gap-7 mt-5">
-        {postList.slice(0, visible).map((data) => {
+        {newsList.slice(0, visible).map((data) => {
           let author = authorList.filter(
             (author) => author.authorId == data.author.id
           )[0];
@@ -47,7 +65,7 @@ const News = ({ postList, authorList }) => {
         })}
       </div>
       {/* load more */}
-      {visible < postList.length ? (
+      {visible < newsList.length ? (
         <div className="flex justify-center mt-10">
           <button
             onClick={() => handleLoadMore(3)}
@@ -71,6 +89,7 @@ const News = ({ postList, authorList }) => {
 News.propTypes = {
   postList: PropTypes.array.isRequired,
   authorList: PropTypes.array.isRequired,
+  categoryList: PropTypes.array.isRequired,
 };
 
 export default News;

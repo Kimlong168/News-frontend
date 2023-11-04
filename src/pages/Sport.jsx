@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import NewCardWithAuthor from "../components/NewCardWithAuthor";
 import Loading from "../components/Loading";
 import PropTypes from "prop-types";
@@ -6,12 +6,32 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 import GoToTop from "../components/GoToTop";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
-const Sport = ({ postList, authorList }) => {
+const Sport = ({ postList, authorList, categoryList }) => {
   const [visible, setVisible] = useState(3);
+  const [sportList, setSportList] = useState([]);
 
   const handleLoadMore = (numberToShow) => {
     setVisible((prev) => prev + numberToShow);
   };
+
+  useEffect(() => {
+    const categorySport = categoryList.map((data) => {
+      if (
+        data.categoryName.toLowerCase() == "sport" ||
+        data.categoryName.toLowerCase() == "sports"
+      ) {
+        return data.id;
+      }
+    })[0];
+    const elements = postList.map((data) => {
+      if (data.categoryId == categorySport) {
+        return data;
+      }
+    });
+
+    setSportList(elements.filter((data) => data)); //filter the undefined data
+  }, [postList, categoryList]);
+
   if (postList.length === 0) {
     return (
       <div className="container">
@@ -25,7 +45,7 @@ const Sport = ({ postList, authorList }) => {
         <title>K-Newz | Sports</title>
       </Helmet>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-auto gap-7 mt-5">
-        {postList.slice(0, visible).map((data) => {
+        {sportList.slice(0, visible).map((data) => {
           let author = authorList.filter(
             (author) => author.authorId == data.author.id
           )[0];
@@ -46,7 +66,7 @@ const Sport = ({ postList, authorList }) => {
         })}
       </div>
       {/* load more */}
-      {visible < postList.length ? (
+      {visible < sportList.length ? (
         <div className="flex justify-center mt-10">
           <button
             onClick={() => handleLoadMore(3)}
@@ -70,5 +90,6 @@ const Sport = ({ postList, authorList }) => {
 Sport.propTypes = {
   postList: PropTypes.array.isRequired,
   authorList: PropTypes.array.isRequired,
+  categoryList: PropTypes.array.isRequired,
 };
 export default Sport;

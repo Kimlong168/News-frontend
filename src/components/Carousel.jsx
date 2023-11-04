@@ -113,7 +113,7 @@ const MyCarousel = ({ todayMatchList }) => {
                 <div> {match.teamA}</div>
               </div>
               <div>
-                <div className="text-xl">VS</div>
+                <div className="text-3xl">VS</div>
                 <div>{match.liveOn}</div>
               </div>
               <div className="w-[100px] ">
@@ -125,7 +125,7 @@ const MyCarousel = ({ todayMatchList }) => {
                 <div> {match.teamB}</div>
               </div>
             </div>
-            <div>{match.staudim}</div>
+            <div className="text-sm">{match.staduim}</div>
           </div>
         ))}
       </Carousel>
@@ -160,7 +160,7 @@ const MyCarousel = ({ todayMatchList }) => {
                 <div> {match.teamA}</div>
               </div>
               <div>
-                <div className="text-xl">VS</div>
+                <div className="text-2xl">VS</div>
                 <div>{match.liveOn}</div>
               </div>
               <div className="w-[100px] ">
@@ -172,7 +172,7 @@ const MyCarousel = ({ todayMatchList }) => {
                 <div> {match.teamB}</div>
               </div>
             </div>
-            <div>{match.staudim}</div>
+            <div>{match.staduim}</div>
           </div>
         ))}
       </Carousel>
