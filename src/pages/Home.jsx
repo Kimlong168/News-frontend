@@ -31,7 +31,7 @@ const Home = ({ postList, todayMatchList, categoryList }) => {
             <div className=" shadow-xl border grid place-items-center font-bold  bg-white mx-2 md:mx-0">
               <Carousel todayMatchList={todayMatchList} />
             </div>
-            <NewsLabel text="Latest Sport News" path="/news" />
+            <NewsLabel text="Latest Sport News" path="/sport" />
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-auto gap-7 mt-5">
               {postList.map((post) => {
@@ -54,7 +54,7 @@ const Home = ({ postList, todayMatchList, categoryList }) => {
               })}
             </div>
 
-            <NewsLabel text="Latest Social News" path="/sport" />
+            <NewsLabel text="Latest Social News" path="/news" />
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-auto gap-7 mt-5">
               {postList.map((post) => {
