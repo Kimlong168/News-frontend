@@ -36,10 +36,14 @@ const NavBar = ({ resultList, setSearchResultList }) => {
     );
     if (result.length !== 0) {
       setSearchResultList(result);
-      navigate('/search');
+      navigate("/search");
     } else {
       alert("Search Not Found!");
     }
+  };
+
+  const scrollTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
   return (
     <>
@@ -77,7 +81,10 @@ const NavBar = ({ resultList, setSearchResultList }) => {
           </NavLink>
           <div
             className="md:hidden cursor-pointer"
-            onClick={() => setShowSearchBar((prev) => !prev)}
+            onClick={() => {
+              scrollTop();
+              setShowSearchBar((prev) => !prev);
+            }}
           >
             <FiSearch color="white" />
           </div>
