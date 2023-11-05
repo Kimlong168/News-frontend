@@ -27,7 +27,7 @@ const Search = ({ searchResultList, authorList }) => {
       </Helmet>
       <div>
         <div className="text-white font-semibold  bg-red-600 px-5 py-3 mt-16  rounded-sm flex items-center justify-between">
-          <small className="border-l-[5px] pl-5 border-white text-xl uppercase ">
+          <small className="border-l-[5px] pl-5 border-white text-lg md:text-xl uppercase ">
             Search Results
           </small>
         </div>
