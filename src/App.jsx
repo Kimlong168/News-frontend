@@ -12,12 +12,14 @@ import { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "./firebase-config";
 import DetailContent from "./pages/DetailContent";
+import Search from "./pages/Search";
 export default function App() {
   const [postList, setPostList] = useState([]);
   const [authorList, setAuthorList] = useState([]);
   const [todayMatchList, setTodayMatchList] = useState([]);
   const [resultList, setResultList] = useState([]);
   const [categoryList, setCategoryList] = useState([]);
+  const [searchResultList, setSearchResultList] = useState(null);
   useEffect(() => {
     const postCollectionRef = collection(db, "posts");
     const authorCollectionRef = collection(db, "authors");
@@ -51,11 +53,13 @@ export default function App() {
     getPosts();
   }, []);
 
-
   return (
     <>
       <Router>
-        <NavBar resultList={resultList} />
+        <NavBar
+          resultList={resultList}
+          setSearchResultList={setSearchResultList}
+        />
         <Routes>
           <Route
             path="/"
@@ -92,6 +96,18 @@ export default function App() {
             path="/detail/:id"
             element={<DetailContent authorList={authorList} />}
           />
+          {searchResultList !== null && (
+            <Route
+              path="/search"
+              element={
+                <Search
+                  searchResultList={searchResultList}
+                  authorList={authorList}
+                />
+              }
+            />
+          )}
+
           <Route path="*" element={<Error404 />} />
         </Routes>
         <Footer />

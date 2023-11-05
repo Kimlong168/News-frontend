@@ -1,28 +1,53 @@
-// import React, { useState } from "react";
+import { useState } from "react";
+import { getDocs, query, orderBy } from "@firebase/firestore";
+import { db } from "../firebase-config";
+import { collection } from "firebase/firestore";
+import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
+const SearchBar = ({ setSearchResultList }) => {
+  const [searchQuery, setSearchQuery] = useState("");
+  const postCollectionRef = collection(db, "posts");
+  const navigate = useNavigate();
 
-const SearchBar = () => {
-  // //   const [search, setSearch] = useState("");
-  // //   const handleSubmit = (e) => {
-  // //     e.preventDefault();
-  // //     setSearchQuery(search);
-  // //     setShowResult(true);
-  // //   };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    getPostsBySearch();
+  };
+
+  const getPostsBySearch = async () => {
+    const data = await getDocs(
+      query(postCollectionRef, orderBy("title", "desc"))
+    );
+    console.log("data", data.docs);
+
+    let result = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+    result = result.filter(
+      (post) =>
+        post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        post.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        post.tags.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    if (result.length !== 0) {
+      setSearchResultList(result);
+
+      navigate("/search");
+    } else {
+      alert("Search Not Found!");
+    }
+  };
+
   return (
     <div>
       <div className="mx-auto ">
-        <form action="" className="relative mx-auto">
+        <form action="" className="relative mx-auto" onSubmit={handleSubmit}>
           <input
-            // onBlur={() => {
-            //   setShowResult(false);
-            // }}
-            // onFocus={() => setShowResult(true)}
-            // onChange={(e) => setSearch(e.target.value)}
+            onChange={(e) => setSearchQuery(e.target.value)}
             type="search"
             name="search"
             placeholder="Search..."
             className="peer cursor-pointer relative z-10 h-10 w-12 rounded-full  bg-transparent pl-12 outline-none focus:w-full focus:cursor-text focus:border-white focus:pl-16 focus:pr-4 text-white"
-            // className="peer relative z-10 rounded-full  border bg-transparent h-11 outline-none w-[200px] md:w-[230px] lg:w-full border-white pl-16 pr-4 text-white"
           />
+
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="absolute inset-y-0 my-auto w-12 border-r border-transparent  px-3.5 border-white "
@@ -42,5 +67,7 @@ const SearchBar = () => {
     </div>
   );
 };
-
+SearchBar.propTypes = {
+  setSearchResultList: PropTypes.func,
+};
 export default SearchBar;
