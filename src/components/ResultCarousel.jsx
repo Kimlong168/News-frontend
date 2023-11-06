@@ -37,7 +37,10 @@ const ResultCarousel = ({ resultList }) => {
         transitionTime={500}
       >
         {resultList.map((result) => (
-          <div key={result.id} className="w-full h-[50px] grid place-items-center">
+          <div
+            key={result.id}
+            className="w-full h-[50px] grid place-items-center"
+          >
             <span className="flex flex-col md:flex-row justify-center items-center ">
               <div className="flex gap-3">
                 {result.teamA}
@@ -52,7 +55,7 @@ const ResultCarousel = ({ resultList }) => {
                 {titleImage(result.title) && (
                   <div className="max-h-6 max-w-6">
                     <img
-                      className="max-h-6 max-w-6 inline-block "
+                      className="max-h-6 max-w-6 "
                       src={titleImage(result.title)}
                     />
                   </div>

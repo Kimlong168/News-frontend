@@ -94,7 +94,9 @@ export default function App() {
           <Route path="/about" element={<About authorList={authorList} />} />
           <Route
             path="/detail/:id"
-            element={<DetailContent authorList={authorList} />}
+            element={
+              <DetailContent authorList={authorList} postList={postList} />
+            }
           />
           {searchResultList !== null && (
             <Route
