@@ -53,9 +53,9 @@ const ResultCarousel = ({ resultList }) => {
               <div className="flex items-center  gap-1 ">
                 <div>{result.title}</div>
                 {titleImage(result.title) && (
-                  <div className="max-h-6 max-w-6">
+                  <div className="h-6 w-6">
                     <img
-                      className="max-h-6 max-w-6 "
+                      className="w-full h-full cover"
                       src={titleImage(result.title)}
                     />
                   </div>
