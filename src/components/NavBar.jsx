@@ -14,15 +14,15 @@ const NavBar = ({ resultList, setSearchResultList }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const postCollectionRef = collection(db, "posts");
   const navigate = useNavigate();
-  useEffect(() => {
-    window.addEventListener("scroll", () => {
-      if (window.screenY < 500) {
-        setShowSearchBar(false);
-      } else {
-        setShowSearchBar(true);
-      }
-    });
-  }, []);
+  // useEffect(() => {
+  //   window.addEventListener("scroll", () => {
+  //     if (window.screenY < 500) {
+  //       setShowSearchBar(false);
+  //     } else {
+  //       setShowSearchBar(true);
+  //     }
+  //   });
+  // }, []);
 
   const getPostsBySearch = async () => {
     const data = await getDocs(
