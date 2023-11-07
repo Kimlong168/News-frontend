@@ -20,7 +20,9 @@ export default function App() {
   const [resultList, setResultList] = useState([]);
   const [categoryList, setCategoryList] = useState([]);
   const [searchResultList, setSearchResultList] = useState(null);
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState(
+    localStorage.getItem("mode") ? localStorage.getItem("mode") : "light"
+  );
   useEffect(() => {
     const postCollectionRef = collection(db, "posts");
     const authorCollectionRef = collection(db, "authors");
@@ -54,14 +56,17 @@ export default function App() {
     getPosts();
   }, []);
 
-  // dark mode
-  useEffect(() => {
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      setTheme("dark");
-    } else {
-      setTheme("light");
-    }
-  }, []);
+ 
+  // set mode to dark if user's device is in dark mode
+  // useEffect(() => {
+  //   if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+  //     setTheme("dark");
+  //     localStorage.setItem("mode", "dark");
+  //   } else {
+  //     setTheme("light");
+  //     localStorage.setItem("mode", "light");
+  //   }
+  // }, []);
 
   useEffect(() => {
     if (theme === "dark") {
@@ -72,6 +77,11 @@ export default function App() {
   }, [theme]);
 
   const handleThemeSwitch = () => {
+    if (theme === "dark") {
+      localStorage.setItem("mode", "light");
+    } else {
+      localStorage.setItem("mode", "dark");
+    }
     setTheme(theme === "dark" ? "light" : "dark");
   };
 
