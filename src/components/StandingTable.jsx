@@ -58,7 +58,8 @@ const StandingTable = ({ clubList, groupList, group }) => {
                       className="bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-gray-700 dark:text-gray-400"
                     >
                       <td className="px-4 py-3">{no++}</td>
-                      <td className="px-4 py-3">{post.clubName}</td>
+                      <td className="px-4 py-3 hidden md:block">{post.clubName}</td>
+                      <td className="px-4 py-3 md:hidden">{post.shortName}</td>
                       {/* <td className="px-4 py-3">{post.shortName}</td> */}
                       <td className="px-4 py-3">
                         <div className="w-[40px] h-[40px]">
