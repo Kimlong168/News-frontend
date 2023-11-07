@@ -57,7 +57,7 @@ const Home = ({ postList, todayMatchList, categoryList }) => {
 
             <div className="hidden md:grid lg:hidden grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-rows-1 gap-7 mt-5">
               {postList.map((post) => {
-                if (post.categoryId == categorySport && count1 < 5) {
+                if (post.categoryId == categorySport && count1 < 4) {
                   count1++;
                   return (
                     <>
@@ -102,7 +102,7 @@ const Home = ({ postList, todayMatchList, categoryList }) => {
 
             <div className="hidden md:grid lg:hidden grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-rows-1 gap-7 mt-5">
               {postList.map((post) => {
-                if (post.categoryId != categorySport && count1 < 10) {
+                if (post.categoryId != categorySport && count1 < 8) {
                   count1++;
                   return (
                     <>
