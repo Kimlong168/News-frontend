@@ -91,7 +91,7 @@ const MyCarousel = ({ todayMatchList }) => {
 
   return (
     <div
-      className="relative w-[350px] sm:w-[500px] md:w-[600px] lg:w-[900px] xl:w-[1240px] py-[20px] pt-[30px] md:pt-[30px] "
+      className="relative w-[350px] sm:w-[500px] md:w-[600px] lg:w-[900px] xl:w-[1240px] py-[20px] pt-[30px] md:pt-[30px] dark:bg-black dark:text-white"
       onMouseOver={() => setShowArrow(true)}
       onMouseLeave={() => {
         setTimeout(() => setShowArrow(false), 8000);

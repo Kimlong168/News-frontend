@@ -28,7 +28,7 @@ const Home = ({ postList, todayMatchList, categoryList }) => {
           <Loading />
         ) : (
           <>
-            <div className=" shadow-xl border grid place-items-center font-bold  bg-white mx-2 md:mx-0">
+            <div className=" shadow-xl border grid place-items-center font-bold dark:bg-black bg-white mx-2 md:mx-0">
               <Carousel todayMatchList={todayMatchList} />
             </div>
             <NewsLabel text="Latest Sport News" path="/sport" />

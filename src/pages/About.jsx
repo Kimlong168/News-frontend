@@ -9,7 +9,7 @@ import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 const About = ({ authorList }) => {
   return (
-    <div className="container p-4 md:p-0 overflow-hidden">
+    <div className="container p-4 md:p-0 overflow-hidden dark:text-white/80">
       <Helmet>
         <title>K-Newz | About</title>
       </Helmet>

@@ -19,7 +19,7 @@ const NewsCard = ({ coverImage, title, description }) => {
         />
       </div>
       <div className="px-3 md:px-0">
-        <div className="line-clamp-2    font-semibold text-2xl my-4">
+        <div className="line-clamp-2 dark:text-white/80 font-semibold text-2xl my-4">
           {title}
         </div>
         <div className="line-clamp-2 text-sm text-gray-400">{description}</div>

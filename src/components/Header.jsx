@@ -1,13 +1,16 @@
 import cpl from "../assets/league_1.png";
-import logo from "../assets/logo_boyloy.jpg";
+import logo from "../assets/logo_boyloy.png";
 // import ucl from "../assets/ucl.jpg";
 // import afc from "../assets/afc.jpg";
 // import leaugecup from "../assets/leauge-cup.jpg";
 import { WiDaySunny } from "react-icons/wi";
+import { PiMoonStarsLight } from "react-icons/pi";
 import PropsTypes from "prop-types";
 import { Link } from "react-router-dom";
 import ResultCarousel from "./ResultCarousel";
-const Header = ({ resultList }) => {
+import { useState } from "react";
+const Header = ({ resultList, handleThemeSwitch }) => {
+  const [showMoon, setShowMoon] = useState(false);
   // function titleImage(title) {
   //   const logoes = {
   //     afccup: afc,
@@ -26,7 +29,7 @@ const Header = ({ resultList }) => {
   // }
 
   return (
-    <header className="flex flex-col gap-3 md:gap-0  p-4 md:px-10 bg-white">
+    <header className="flex flex-col gap-3 md:gap-0  p-4 md:px-10 bg-white dark:bg-black dark:text-white">
       <div className="flex items-center justify-between gap-10">
         <div className="w-[80px] h-[80px] ">
           <Link to="/">
@@ -64,8 +67,17 @@ const Header = ({ resultList }) => {
             </div>
           </marquee> */}
         </div>
-        <div>
-          <WiDaySunny className="w-[30px] h-[30px] text-red-600 cursor-pointer" />
+        <div
+          onClick={() => {
+            handleThemeSwitch();
+            setShowMoon((prev) => !prev);
+          }}
+        >
+          {showMoon ? (
+            <PiMoonStarsLight className="w-[30px] h-[30px] text-red-600 cursor-pointer" />
+          ) : (
+            <WiDaySunny className="w-[30px] h-[30px] text-red-600 cursor-pointer" />
+          )}
         </div>
       </div>
 
@@ -105,5 +117,6 @@ const Header = ({ resultList }) => {
 };
 Header.propTypes = {
   resultList: PropsTypes.array.isRequired,
+  handleThemeSwitch: PropsTypes.func.isRequired,
 };
 export default Header;

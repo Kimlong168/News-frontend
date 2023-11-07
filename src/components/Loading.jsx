@@ -5,7 +5,7 @@ const Loading = () => {
         style={{ borderTopColor: "transparent" }}
         className="w-8 h-8 border-4 border-red-600 rounded-full animate-spin"
       ></div>
-      <p className="ml-2 text-gradient">Loading...</p>
+      <p className="ml-2 text-gradient dark:text-red-600">Loading...</p>
     </div>
   );
 };

@@ -4,12 +4,12 @@ import Header from "./Header";
 import SearchBar from "./SearchBar";
 import PropTypes from "prop-types";
 import { FiSearch } from "react-icons/fi";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { getDocs, query, orderBy } from "@firebase/firestore";
 import { collection } from "firebase/firestore";
 
 import { db } from "../firebase-config";
-const NavBar = ({ resultList, setSearchResultList }) => {
+const NavBar = ({ resultList, setSearchResultList, handleThemeSwitch }) => {
   const [showSearchBar, setShowSearchBar] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const postCollectionRef = collection(db, "posts");
@@ -47,7 +47,7 @@ const NavBar = ({ resultList, setSearchResultList }) => {
   };
   return (
     <>
-      <Header resultList={resultList} />
+      <Header resultList={resultList} handleThemeSwitch={handleThemeSwitch} />
       <nav className="flex items-center justify-center gap-4 py-3 px-20 bg-red-600 text-white font-bold sticky top-0 z-50">
         <div className="flex items-center justify-center flex-1 gap-6 md:gap-10 lg:gap-14 py-2 md:pl-10 uppercase text-md">
           <NavLink
@@ -100,7 +100,7 @@ const NavBar = ({ resultList, setSearchResultList }) => {
             onChange={(e) => setSearchQuery(e.target.value)}
             value={searchQuery}
             placeholder="Search..."
-            className="px-2 py-2 w-full border border-red-600 text-black bg-transparent rounded outline-none "
+            className="px-2 py-2 w-full border border-red-600 text-black dark:text-white bg-transparent rounded outline-none "
           />
           <button
             onClick={getPostsBySearch}
@@ -117,6 +117,7 @@ const NavBar = ({ resultList, setSearchResultList }) => {
 NavBar.propTypes = {
   resultList: PropTypes.array.isRequired,
   setSearchResultList: PropTypes.func.isRequired,
+  handleThemeSwitch: PropTypes.func.isRequired,
 };
 
 export default NavBar;

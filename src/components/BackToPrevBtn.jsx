@@ -6,7 +6,7 @@ const BackToPrevBtn = ({ previousURL }) => {
   return (
     <div>
       <Link to="/">
-        <button className="uppercase text-gray-900 hover:text-yellow-500 transition-all gap-2 hover:gap-4 flex items-center mt-5">
+        <button className="uppercase text-gray-900 dark:text-white hover:text-yellow-500 transition-all gap-2 hover:gap-4 flex items-center mt-5">
           <AiOutlineArrowLeft /> previous
         </button>
       </Link>

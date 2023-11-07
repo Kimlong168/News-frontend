@@ -3,9 +3,9 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { Carousel } from "react-responsive-carousel";
 import PropTypes from "prop-types";
 import cpl from "../assets/league_1.png";
-import ucl from "../assets/ucl.jpg";
-import afc from "../assets/afc.jpg";
-import leaugecup from "../assets/leauge-cup.jpg";
+import ucl from "../assets/ucl.png";
+import afc from "../assets/afc.png";
+import leaugecup from "../assets/leauge-cup.png";
 function titleImage(title) {
   const logoes = {
     afccup: afc,
@@ -24,7 +24,7 @@ function titleImage(title) {
 }
 const ResultCarousel = ({ resultList }) => {
   return (
-    <div className="relative h-full">
+    <div className="relative h-full ">
       <Carousel
         infiniteLoop={true}
         autoPlay={true}
