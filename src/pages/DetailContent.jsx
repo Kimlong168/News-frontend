@@ -141,8 +141,29 @@ const DetailContent = ({ authorList, postList }) => {
               </small>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-auto gap-7 mt-5">
+            <div className="grid md:hidden lg:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-auto gap-7 mt-5">
               {relatedPost.slice(0, 3).map((data) => {
+                let author = authorList.filter(
+                  (author) => author.authorId == data.author.id
+                )[0];
+                console.log("author for card:", author);
+                return (
+                  <div key={data.id} onClick={scrollTop}>
+                    <Link to={`/detail/${data.id}`}>
+                      <NewCardWithAuthor
+                        coverImage={data.img}
+                        title={data.title}
+                        description={data.description}
+                        authorImg={author.profilePicture}
+                        authorName={author.fullName}
+                      />
+                    </Link>
+                  </div>
+                );
+              })}
+            </div>
+            <div className="hidden md:grid lg:hidden grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-auto gap-7 mt-5">
+              {relatedPost.slice(0, 4).map((data) => {
                 let author = authorList.filter(
                   (author) => author.authorId == data.author.id
                 )[0];
