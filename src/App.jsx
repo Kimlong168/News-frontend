@@ -9,7 +9,7 @@ import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 
 import { useEffect, useState } from "react";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, orderBy, query } from "firebase/firestore";
 import { db } from "./firebase-config";
 import DetailContent from "./pages/DetailContent";
 import Search from "./pages/Search";
@@ -20,6 +20,8 @@ export default function App() {
   const [resultList, setResultList] = useState([]);
   const [categoryList, setCategoryList] = useState([]);
   const [searchResultList, setSearchResultList] = useState(null);
+  const [clubList, setClubList] = useState(null);
+  const [groupList, setGroupList] = useState(null);
   const [theme, setTheme] = useState(
     localStorage.getItem("mode") ? localStorage.getItem("mode") : "light"
   );
@@ -29,6 +31,8 @@ export default function App() {
     const resultCollectionRef = collection(db, "results");
     const todayMatchCollectionRef = collection(db, "todayMatch");
     const categoryCollectionRef = collection(db, "categories");
+    const clubCollectionRef = collection(db, "clubs");
+    const groupCollectionRef = collection(db, "groups");
 
     const getPosts = async () => {
       const authors = await getDocs(authorCollectionRef);
@@ -36,12 +40,22 @@ export default function App() {
       const results = await getDocs(resultCollectionRef);
       const matches = await getDocs(todayMatchCollectionRef);
       const categories = await getDocs(categoryCollectionRef);
+      // const clubs = await getDocs(clubCollectionRef);
+      const clubs = await getDocs(
+        query(
+          clubCollectionRef,
+          orderBy("point", "desc"),
+        )
+      );
+      const groups = await getDocs(groupCollectionRef);
 
       console.log("posts", posts);
       console.log("auhtors", authors);
       console.log("football_results", results);
       console.log("today_match", matches);
       console.log("categories", categories);
+      console.log("clubs", clubs);
+      console.log("groups", groups);
 
       setAuthorList(authors.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
       setResultList(results.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
@@ -52,11 +66,12 @@ export default function App() {
       setCategoryList(
         categories.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
       );
+      setClubList(clubs.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      setGroupList(groups.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
     getPosts();
   }, []);
 
- 
   // set mode to dark if user's device is in dark mode
   // useEffect(() => {
   //   if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
@@ -101,6 +116,8 @@ export default function App() {
                 postList={postList}
                 todayMatchList={todayMatchList}
                 categoryList={categoryList}
+                clubList={clubList}
+                groupList={groupList}
               />
             }
           />
