@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 // vartants
 import { fadeIn } from "../variants";
 import PropType from "prop-types";
-const AuthorCard = ({ fullName, profileImage, bio, links }) => {
+const AuthorCard = ({ fullName, profileImage, bio, links, position }) => {
   return (
     <motion.div
       variants={fadeIn("right", 0.2)}
@@ -28,6 +28,7 @@ const AuthorCard = ({ fullName, profileImage, bio, links }) => {
           <h3 className="text-gray-900 capitalize bold font-sans text-2xl text-semibold ">
             {fullName}
           </h3>
+          <div className="text-sm uppercase mt-2">{position}</div>
           <p className="mt-2 font-sans grid place-items-center h-[120px] mb-4  text-gray-900 w-[90%] md:w-[60%] mx-auto  line-clamp-5">
             {bio}
           </p>
@@ -53,5 +54,6 @@ AuthorCard.propTypes = {
   profileImage: PropType.string,
   bio: PropType.string,
   links: PropType.array,
+  position: PropType.string,
 };
 export default AuthorCard;

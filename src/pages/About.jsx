@@ -77,6 +77,7 @@ const About = ({ authorList }) => {
                 profileImage={author.profilePicture}
                 bio={author.bio}
                 links={author.links}
+                position={author.position}
               />
             </>
           ))}

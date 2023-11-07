@@ -8,6 +8,7 @@ import { Helmet } from "react-helmet";
 import Banner from "../components/Banner";
 const Home = ({ postList, todayMatchList, categoryList }) => {
   let count = 0;
+  let count1 = 0;
   console.log("postList-home", postList);
   const categorySport = categoryList.map((data) => {
     if (
@@ -33,7 +34,7 @@ const Home = ({ postList, todayMatchList, categoryList }) => {
             </div>
             <NewsLabel text="Latest Sport News" path="/sport" />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-auto gap-7 mt-5">
+            <div className=" grid md:hidden lg:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-rows-1 gap-7 mt-5">
               {postList.map((post) => {
                 if (post.categoryId == categorySport && count < 3) {
                   count++;
@@ -54,12 +55,55 @@ const Home = ({ postList, todayMatchList, categoryList }) => {
               })}
             </div>
 
+            <div className="hidden md:grid lg:hidden grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-rows-1 gap-7 mt-5">
+              {postList.map((post) => {
+                if (post.categoryId == categorySport && count1 < 5) {
+                  count1++;
+                  return (
+                    <>
+                      <div key={post.id}>
+                        <Link to={`/detail/${post.id}`}>
+                          <NewsCard
+                            coverImage={post.img}
+                            title={post.title}
+                            description={post.description}
+                          />
+                        </Link>
+                      </div>
+                    </>
+                  );
+                }
+              })}
+            </div>
+
             <NewsLabel text="Latest Social News" path="/news" />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-auto gap-7 mt-5">
+
+            <div className="grid md:hidden lg:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-rows-1 gap-7 mt-5">
               {postList.map((post) => {
                 if (post.categoryId != categorySport && count < 6) {
                   count++;
+                  return (
+                    <>
+                      <div key={post.id}>
+                        <Link to={`/detail/${post.id}`}>
+                          <NewsCard
+                            coverImage={post.img}
+                            title={post.title}
+                            description={post.description}
+                          />
+                        </Link>
+                      </div>
+                    </>
+                  );
+                }
+              })}
+            </div>
+
+            <div className="hidden md:grid lg:hidden grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-rows-1 gap-7 mt-5">
+              {postList.map((post) => {
+                if (post.categoryId != categorySport && count1 < 10) {
+                  count1++;
                   return (
                     <>
                       <div key={post.id}>
