@@ -22,7 +22,7 @@ const Home = ({ postList, todayMatchList, categoryList }) => {
   return (
     <>
       <Helmet>
-        <title>K-Newz Official</title>
+        <title>Boyloy-News Official</title>
       </Helmet>
       <div className="container mt-16">
         {postList.length == 0 ? (

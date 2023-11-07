@@ -23,7 +23,7 @@ const Search = ({ searchResultList, authorList }) => {
   return (
     <div className="container mt-16">
       <Helmet>
-        <title>K-Newz | News</title>
+        <title>Boyloy-News | Search</title>
       </Helmet>
       <div>
         <div className="text-white font-semibold  bg-red-600 px-5 py-3 mt-16  rounded-sm flex items-center justify-between">

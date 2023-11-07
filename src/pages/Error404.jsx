@@ -4,7 +4,7 @@ const Error404 = () => {
   return (
     <div>
       <Helmet>
-        <title>K-Newz | Error page not found!</title>
+        <title>Boyloy-News| Error page not found!</title>
       </Helmet>
       <div className="bg-errorPage flex items-center justify-center min-h-screen  bg-fixed bg-cover bg-bottom error-bg">
         <div className="container">

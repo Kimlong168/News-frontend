@@ -11,7 +11,7 @@ const About = ({ authorList }) => {
   return (
     <div className="container p-4 md:p-0 overflow-hidden dark:text-white/80">
       <Helmet>
-        <title>K-Newz | About</title>
+        <title>Boyloy-News | About</title>
       </Helmet>
       <div className="flex flex-col lg:flex-row gap-10 items-center justify-between my-10">
         <div className="flex-1">

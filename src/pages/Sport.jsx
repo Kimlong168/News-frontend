@@ -44,7 +44,7 @@ const Sport = ({ postList, authorList, categoryList }) => {
   return (
     <div className="container mt-16">
       <Helmet>
-        <title>K-Newz | Sports</title>
+        <title>Boyloy-News | Sports</title>
       </Helmet>
       <div className="grid md:hidden lg:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-auto gap-7 mt-5">
         {sportList.slice(0, visible).map((data) => {
