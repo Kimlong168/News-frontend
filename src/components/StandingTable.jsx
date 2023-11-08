@@ -1,6 +1,9 @@
 import PropTypes from "prop-types";
 import Loading from "./Loading";
-
+// motion
+import { motion } from "framer-motion";
+// vartants
+import { fadeIn } from "../variants";
 const StandingTable = ({ clubList, groupList, group }) => {
   let no = 1;
   if (!clubList || !groupList) {
@@ -53,7 +56,11 @@ const StandingTable = ({ clubList, groupList, group }) => {
                 if (groupId !== post.group) return;
                 return (
                   <>
-                    <tr
+                    <motion.tr
+                      variants={fadeIn("right", 0.2)}
+                      initial="hidden"
+                      whileInView={"show"}
+                      viewport={{ once: true, amount: 0.3 }}
                       key={index}
                       className="bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-gray-700 dark:text-gray-400"
                     >
@@ -84,8 +91,8 @@ const StandingTable = ({ clubList, groupList, group }) => {
                       <td className="px-4 py-3">{post.numWin}</td>
                       <td className="px-4 py-3">{post.numDraw}</td>
                       <td className="px-4 py-3">{post.numLost}</td>
-                      <td className="px-4 py-3">{post.numGA}</td>
                       <td className="px-4 py-3">{post.numGF}</td>
+                      <td className="px-4 py-3">{post.numGA}</td>
                       <td className="px-4 py-3">{post.numGD}</td>
                       <td className="px-4 py-3">{post.point}</td>
                       <td className="px-4 py-3">
@@ -122,7 +129,7 @@ const StandingTable = ({ clubList, groupList, group }) => {
                           }
                         })}
                       </td>
-                    </tr>
+                    </motion.tr>
                   </>
                 );
               })}

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { fadeIn } from "../variants";
 import { BiSolidUser } from "react-icons/bi";
 import { BsArrowRight } from "react-icons/bs";
+import noImage from "../assets/noImage.jpg";
 import PropType from "prop-types";
 const NewCardWithAuthor = ({
   coverImage,
@@ -23,7 +24,7 @@ const NewCardWithAuthor = ({
       <div className="w-full h-[240px] overflow-hidden">
         <img
           className="w-full h-full  hover:scale-110 transition-all "
-          src={coverImage}
+          src={coverImage ? coverImage : noImage}
         />
       </div>
       <div className="-mt-[40px] px-7 flex gap-7 items-end  relative">

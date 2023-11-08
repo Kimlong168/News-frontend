@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 // vartants
 import { fadeIn } from "../variants";
 import PropType from "prop-types";
+import noImage from "../assets/noImage.jpg";
 const NewsCard = ({ coverImage, title, description }) => {
   return (
     <motion.div
@@ -15,7 +16,7 @@ const NewsCard = ({ coverImage, title, description }) => {
       <div className="w-full h-[240px] overflow-hidden">
         <img
           className="w-full h-full hover:scale-110 transition-all"
-          src={coverImage}
+          src={coverImage ? coverImage : noImage}
         />
       </div>
       <div className="px-3 md:px-0">
