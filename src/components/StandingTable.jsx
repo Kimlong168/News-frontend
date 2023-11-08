@@ -15,7 +15,7 @@ const StandingTable = ({ clubList, groupList, group }) => {
       <div className="w-full overflow-hidden rounded-sm shadow-xs">
         <div className="w-full overflow-x-auto">
           <table className="w-full">
-            <thead >
+            <thead>
               <tr className="text-xs font-semibold tracking-wide text-left uppercase border-b dark:border-gray-900 text-white bg-red-600 ">
                 <th className="px-4 py-3">Pos</th>
                 <th className="px-4 py-3">Club </th>
@@ -58,7 +58,9 @@ const StandingTable = ({ clubList, groupList, group }) => {
                       className="bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-gray-700 dark:text-gray-400"
                     >
                       <td className="px-4 py-3">{no++}</td>
-                      <td className="px-4 py-3 hidden md:block">{post.clubName}</td>
+                      <td className="px-4 py-3 hidden md:block">
+                        {post.clubName}
+                      </td>
                       <td className="px-4 py-3 md:hidden">{post.shortName}</td>
                       {/* <td className="px-4 py-3">{post.shortName}</td> */}
                       <td className="px-4 py-3">
@@ -81,17 +83,13 @@ const StandingTable = ({ clubList, groupList, group }) => {
                       <td className="px-4 py-3">{post.numMatch}</td>
                       <td className="px-4 py-3">{post.numWin}</td>
                       <td className="px-4 py-3">{post.numDraw}</td>
-                      <td className="px-4 py-3">
-                        {post.numLost}
-                      </td>
+                      <td className="px-4 py-3">{post.numLost}</td>
                       <td className="px-4 py-3">{post.numGA}</td>
                       <td className="px-4 py-3">{post.numGF}</td>
                       <td className="px-4 py-3">{post.numGD}</td>
+                      <td className="px-4 py-3">{post.point}</td>
                       <td className="px-4 py-3">
-                        {post.point}
-                      </td>
-                      <td className="px-4 py-3">
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-1">
                           {post.form.map((form) => {
                             const bg =
                               form.result == "W"
