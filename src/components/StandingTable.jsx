@@ -107,7 +107,7 @@ const StandingTable = ({ clubList, groupList, group }) => {
                             return (
                               <span
                                 key={index}
-                                className={`px-1.5 text-white rounded ${bg}`}
+                                className={`px-1.5 py-[3px] text-xs text-white rounded ${bg} grid place-items-center`}
                               >
                                 {form.result}
                               </span>
