@@ -7,7 +7,7 @@ import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 import Banner from "../components/Banner";
 import StandingTable from "../components/StandingTable";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 const Home = ({
   postList,
   todayMatchList,
@@ -16,6 +16,7 @@ const Home = ({
   groupList,
 }) => {
   const [selectedGroup, setSelectedGroup] = useState("a");
+  const [groups, setGroups] = useState([]);
   let count = 0;
   let count1 = 0;
   console.log("postList-home", postList);
@@ -28,6 +29,17 @@ const Home = ({
     }
   })[0];
 
+  useEffect(() => {
+    if (groupList) {
+      const groupNames = groupList.map((data) => {
+        return data.groupName;
+      });
+      setGroups(groupNames);
+    }
+  }, [groupList]);
+  // const groupNames = groupList.map((data) => {
+  //   return data.groupName;
+  // });
   // const groupAId = groupList.map((data) => {
   //   if (data.groupName.toLowerCase() == "a") {
   //     return data.id;
@@ -155,16 +167,41 @@ const Home = ({
                     Standing
                   </small>
                   <select
-                  className="text-red-600 px-5 rounded outline-none cursor-pointer "
+                    className="text-red-600 px-5 rounded outline-none cursor-pointer "
                     value={selectedGroup}
                     onChange={(e) => setSelectedGroup(e.target.value)}
                   >
-                    <option value={"a"}>Group A</option>
-                    <option value={"b"}>Group B</option>
+                    {groups &&
+                      groups.map((group) => {
+                        return (
+                          <>
+                            <option value={group.toLowerCase()}>
+                              Group {group}
+                            </option>
+                          </>
+                        );
+                      })}
+                    {/* <option value={"a"}>Group A</option>
+                    <option value={"b"}>Group B</option> */}
                   </select>
                 </div>
               </div>
-              {selectedGroup == "a" ? (
+              {groups &&
+                groups.map((group) => {
+                  console.log("group:", group);
+                  if (group.toUpperCase() == selectedGroup.toUpperCase()) {
+                    return (
+                      <div key={group}>
+                        <StandingTable
+                          clubList={clubList}
+                          groupList={groupList}
+                          group={group}
+                        />
+                      </div>
+                    );
+                  }
+                })}
+              {/* {selectedGroup == "a" ? (
                 <StandingTable
                   clubList={clubList}
                   groupList={groupList}
@@ -176,7 +213,7 @@ const Home = ({
                   groupList={groupList}
                   group="B"
                 />
-              )}
+              )} */}
             </div>
             <div className="mt-10 p-3 md:p-0">
               <Banner />
