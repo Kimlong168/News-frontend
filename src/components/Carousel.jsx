@@ -15,6 +15,18 @@ import kirivong from "../assets/kirivong.png";
 // import ucl from "../assets/ucl.jpg";
 // import afc from "../assets/afc.jpg";
 // import leaugecup from "../assets/leauge-cup.jpg";
+
+// cadt cup club logo
+// import cadtcup from "../assets/cadt-cup.png";
+import cadt from "../assets/cadt.jpg";
+import warrior from "../assets/warrior.png";
+import noodel from "../assets/noodle.png";
+import united from "../assets/united.png";
+import leopard from "../assets/leopard.jpeg";
+import knight from "../assets/knight.png";
+import friend from "../assets/friend.png";
+import boyloy from "../assets/logo_boyloy.png"
+
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 import { useState } from "react";
@@ -43,6 +55,14 @@ const MyCarousel = ({ todayMatchList }) => {
 
   function titleImage(searchText) {
     const logoes = [
+      { key: "staff", value: cadt },
+      { key: "warrior", value: warrior },
+      { key: "មីកំប៉ុង", value: noodel },
+      { key: "united", value: united },
+      { key: "boyloy", value: boyloy },
+      { key: "leopard", value: leopard },
+      { key: "knight", value: knight },
+      { key: "friend", value: friend },
       { key: "svayrieng", value: svr },
       { key: "visakha", value: visakha },
       { key: "nagaworld", value: nagaworld },
@@ -123,7 +143,7 @@ const MyCarousel = ({ todayMatchList }) => {
             <div className="flex gap-10 md:gap-24 items-center justify-center">
               <div className="w-[100px]">
                 <img
-                  className="w-[100px] h-[100px] cover mb-2"
+                  className="w-[100px] h-[100px] rounded-full cover mb-2"
                   src={titleImage(match.teamA)}
                   alt=""
                 />
@@ -135,7 +155,7 @@ const MyCarousel = ({ todayMatchList }) => {
               </div>
               <div className="w-[100px] ">
                 <img
-                  className="w-[100px] h-[100px] cover mb-2"
+                  className="w-[100px] h-[100px] rounded-full cover mb-2"
                   src={titleImage(match.teamB)}
                   alt=""
                 />
