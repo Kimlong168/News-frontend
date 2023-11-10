@@ -76,7 +76,6 @@ const MyCarousel = ({ todayMatchList }) => {
       { key: "shv", value: shv },
       { key: "kirivong", value: kirivong },
       { key: "nfa", value: nfa },
-
       { key: "fc", value: cpl },
     ];
 
@@ -143,7 +142,7 @@ const MyCarousel = ({ todayMatchList }) => {
             <div className="flex gap-10 md:gap-24 items-center justify-center">
               <div className="w-[100px]">
                 <img
-                  className="w-[100px] h-[100px] rounded-full cover mb-2"
+                  className="w-[100px] h-[100px]  cover mb-2"
                   src={titleImage(match.teamA)}
                   alt=""
                 />
@@ -155,7 +154,7 @@ const MyCarousel = ({ todayMatchList }) => {
               </div>
               <div className="w-[100px] ">
                 <img
-                  className="w-[100px] h-[100px] rounded-full cover mb-2"
+                  className="w-[100px] h-[100px]  cover mb-2"
                   src={titleImage(match.teamB)}
                   alt=""
                 />
