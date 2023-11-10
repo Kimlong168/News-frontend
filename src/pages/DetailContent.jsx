@@ -80,8 +80,8 @@ const DetailContent = ({ authorList, postList }) => {
       </Helmet>
       <div className="container px-4 md:p-0 min-h-screen">
         <div className=" flex flex-col md:flex-row gap-2 mt-3 md:mt-5 ">
-          <div className="w-full md:w-[75%] mt-4 bg-white shadow-xl p-6 min-h-screen">
-            <div className="text-gray-900 font-bold text-2xl md:text-3xl">
+          <div className="w-full md:w-[75%] mt-4 bg-white dark:bg-black dark:text-white border border-white/20 shadow-xl p-6 min-h-screen">
+            <div className="text-gray-900 dark:text-white font-bold text-2xl md:text-3xl">
               {data.title}
             </div>
             <div className="flex items-center gap-5 md:gap-8 py-5">
@@ -97,7 +97,7 @@ const DetailContent = ({ authorList, postList }) => {
             <div className="mb-5 w-full">
               <img className="w-full" src={data.img} alt="" />
             </div>
-            <div id="markdown" className="break-words">
+            <div id="markdown" className="break-words dark:text-white/80">
               <Markdown>{data.content}</Markdown>
             </div>
             <div className="mt-10 mb-5">

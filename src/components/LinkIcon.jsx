@@ -45,7 +45,7 @@ const IconSelector = ({ title }) => {
 
   const IconComponent = iconMapping[lowerCaseTitle] || FaGlobe;
 
-  return <IconComponent size={24} color="rgb(17,24,39)"/>;
+  return <IconComponent size={24} />;
 };
 IconSelector.propTypes = {
   title: PropTypes.string.isRequired,

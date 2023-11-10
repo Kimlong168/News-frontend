@@ -25,7 +25,7 @@ const Author = ({ fullName, profileImage, bio, links }) => {
           </p>
         </div>
         <div className="flex justify-center  ">
-          <div className="flex justify-center space-x-6">
+          <div className="flex justify-center space-x-6 ">
             {links &&
               links.map((link) => (
                 <>
