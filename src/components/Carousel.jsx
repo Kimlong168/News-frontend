@@ -18,7 +18,7 @@ import kirivong from "../assets/kirivong.png";
 
 // cadt cup club logo
 // import cadtcup from "../assets/cadt-cup.png";
-import cadt from "../assets/cadt.jpg";
+import cadt from "../assets/cadt.png";
 import warrior from "../assets/warrior.png";
 import noodel from "../assets/noodle.png";
 import united from "../assets/united.png";
