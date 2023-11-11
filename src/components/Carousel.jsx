@@ -22,7 +22,7 @@ import cadt from "../assets/cadt.png";
 import warrior from "../assets/warrior.png";
 import noodel from "../assets/noodle.png";
 import united from "../assets/united.png";
-import leopard from "../assets/leopard.jpeg";
+import leopard from "../assets/leopard.png";
 import knight from "../assets/knight.png";
 import friend from "../assets/friend.png";
 import boyloy from "../assets/logo_boyloy.png"
