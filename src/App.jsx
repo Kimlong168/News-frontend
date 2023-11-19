@@ -44,7 +44,8 @@ export default function App() {
       const clubs = await getDocs(
         query(
           clubCollectionRef,
-          orderBy("point", "desc"),
+          // orderBy("point", "desc"),
+          orderBy("numGD", "desc"),
         )
       );
       const groups = await getDocs(groupCollectionRef);
