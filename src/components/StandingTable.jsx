@@ -13,6 +13,30 @@ const StandingTable = ({ clubList, groupList, group }) => {
       </div>
     );
   }
+
+  //sort by point
+
+  clubList.sort((a, b) => {
+    if (a.point > b.point) {
+      return -1;
+    } else if (a.point < b.point) {
+      return 1;
+    } else {
+      if (a.numGD > b.numGD) {
+        return -1;
+      } else if (a.numGD < b.numGD) {
+        return 1;
+      } else {
+        if (a.numGF > b.numGF) {
+          return -1;
+        } else if (a.numGF < b.numGF) {
+          return 1;
+        } else {
+          return 0;
+        }
+      }
+    }
+  });
   return (
     <div>
       <div className="w-full overflow-hidden rounded-sm shadow-xs">
