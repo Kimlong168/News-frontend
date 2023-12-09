@@ -13,8 +13,12 @@ const NewCardWithAuthor = ({
   authorImg,
   authorName,
 }) => {
+  const scrollTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
   return (
     <motion.div
+      onClick={scrollTop}
       variants={fadeIn("right", 0.2)}
       initial="hidden"
       whileInView={"show"}

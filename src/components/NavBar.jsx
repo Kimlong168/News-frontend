@@ -4,16 +4,21 @@ import Header from "./Header";
 import SearchBar from "./SearchBar";
 import PropTypes from "prop-types";
 import { FiSearch } from "react-icons/fi";
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { getDocs, query, orderBy } from "@firebase/firestore";
 import { collection } from "firebase/firestore";
-
+// import logo from "../assets/logo_boyloy.png";
 import { db } from "../firebase-config";
 const NavBar = ({ resultList, setSearchResultList, handleThemeSwitch }) => {
   const [showSearchBar, setShowSearchBar] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [visible, setVisible] = useState(true);
+  const myNodeRef = useRef(null);
+  const [nodeHeight, setNodeHeight] = useState(0);
   const postCollectionRef = collection(db, "posts");
   const navigate = useNavigate();
+
   // useEffect(() => {
   //   window.addEventListener("scroll", () => {
   //     if (window.screenY < 500) {
@@ -45,10 +50,44 @@ const NavBar = ({ resultList, setSearchResultList, handleThemeSwitch }) => {
   const scrollTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.pageYOffset;
+
+      setVisible(
+        prevScrollPos > currentScrollPos || currentScrollPos < nodeHeight
+      );
+
+      setPrevScrollPos(currentScrollPos);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [prevScrollPos, nodeHeight]);
+
+  useEffect(() => {
+    if (myNodeRef.current) {
+      const height = myNodeRef.current.getBoundingClientRect().height;
+      setNodeHeight(height);
+    }
+  }, [myNodeRef]);
+
   return (
     <>
-      <Header resultList={resultList} handleThemeSwitch={handleThemeSwitch} />
+      <div ref={myNodeRef}>
+        <Header resultList={resultList} handleThemeSwitch={handleThemeSwitch} />
+      </div>
       <nav className="flex items-center justify-center gap-4 py-3 px-20 bg-red-600 text-white font-bold sticky top-0 z-50">
+        {!visible && (
+          <div className="uppercase text-yellow-200 hidden md:block">
+            Boyloy.com
+          </div>
+        )}
+
         <div className="flex items-center justify-center flex-1 gap-6 md:gap-10 lg:gap-14 py-2 md:pl-10 uppercase text-md">
           <NavLink
             exact

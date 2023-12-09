@@ -5,8 +5,12 @@ import { fadeIn } from "../variants";
 import PropType from "prop-types";
 import noImage from "../assets/noImage.jpg";
 const NewsCard = ({ coverImage, title, description }) => {
+  const scrollTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
   return (
     <motion.div
+      onClick={scrollTop}
       variants={fadeIn("right", 0.2)}
       initial="hidden"
       whileInView={"show"}
