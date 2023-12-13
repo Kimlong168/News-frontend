@@ -119,16 +119,28 @@ const DetailContent = ({ authorList, postList }) => {
             {/* <span className="md:rotate-90 text-3xl">SPONSOR</span> */}
             <span className="text-center uppercase">SPONSORED BY</span>
             <div>
-              <img src={sponsor1} />
+              <img
+                className=" dark:grayscale dark:hover:grayscale-0 cursor-pointer transition-all"
+                src={sponsor1}
+              />
             </div>
             <div>
-              <img src={sponsor2} />
+              <img
+                className=" dark:grayscale dark:hover:grayscale-0 cursor-pointer transition-all"
+                src={sponsor2}
+              />
             </div>
             <div>
-              <img src={sponsor3} />
+              <img
+                className=" dark:grayscale dark:hover:grayscale-0 cursor-pointer transition-all"
+                src={sponsor3}
+              />
             </div>
             <div>
-              <img src={aba_qr} />
+              <img
+                className=" dark:grayscale dark:hover:grayscale-0 cursor-pointer transition-all"
+                src={aba_qr}
+              />
             </div>
           </div>
         </div>

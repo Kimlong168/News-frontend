@@ -45,12 +45,12 @@ const SearchBar = ({ setSearchResultList }) => {
             type="search"
             name="search"
             placeholder="Search..."
-            className="peer cursor-pointer relative z-10 h-10 w-12 rounded-full  bg-transparent pl-12 outline-none focus:w-full focus:cursor-text focus:border-white focus:pl-16 focus:pr-4 text-white"
+            className="peer cursor-pointer relative z-10 h-10 w-12 rounded-full border-none bg-transparent pl-12 outline-none focus:w-full focus:cursor-text focus:border-white focus:pl-16 focus:pr-4 text-white"
           />
 
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="absolute inset-y-0 my-auto w-12 border-r border-transparent  px-3.5 border-white "
+            className="absolute inset-y-0 my-auto w-12 border-r border-transparent px-3.5 border-white "
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"

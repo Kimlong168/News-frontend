@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Header from "./Header";
 import SearchBar from "./SearchBar";
@@ -83,8 +83,11 @@ const NavBar = ({ resultList, setSearchResultList, handleThemeSwitch }) => {
       </div>
       <nav className="flex items-center justify-center gap-4 py-3 px-20 bg-red-600 text-white font-bold sticky top-0 z-50">
         {!visible && (
-          <div className="uppercase text-yellow-200 hidden md:block">
-            Boyloy.com
+          <div
+            className="uppercase text-yellow-200 hidden md:block"
+            onClick={scrollTop}
+          >
+            <Link to="/">Boyloy.com</Link>
           </div>
         )}
 
