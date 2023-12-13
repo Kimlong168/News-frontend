@@ -41,7 +41,7 @@ const Popup5s = ({ setShowPopup }) => {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen
           ></iframe>
-          <div className="bg-white/90 w-full flex items-center justify-end gap-4 p-2">
+          <div className="bg-white/90 w-full flex items-center justify-between md:justify-end gap-4 p-2">
             <div>
               Close in {seconds} {seconds == 1 ? "second" : "seconds"}
             </div>
