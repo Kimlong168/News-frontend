@@ -3,6 +3,7 @@ import { getDocs, query, orderBy } from "@firebase/firestore";
 import { db } from "../firebase-config";
 import { collection } from "firebase/firestore";
 import PropTypes from "prop-types";
+import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 const SearchBar = ({ setSearchResultList }) => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -32,7 +33,13 @@ const SearchBar = ({ setSearchResultList }) => {
 
       navigate("/search");
     } else {
-      alert("Search Not Found!");
+      // search not found modal
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Search Not Found!",
+        confirmButtonText: "OK",
+      });
     }
   };
 

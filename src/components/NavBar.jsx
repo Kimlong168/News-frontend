@@ -7,6 +7,7 @@ import { FiSearch } from "react-icons/fi";
 import { useEffect, useState, useRef } from "react";
 import { getDocs, query, orderBy } from "@firebase/firestore";
 import { collection } from "firebase/firestore";
+import Swal from "sweetalert2";
 // import logo from "../assets/logo_boyloy.png";
 import { db } from "../firebase-config";
 const NavBar = ({ resultList, setSearchResultList, handleThemeSwitch }) => {
@@ -43,7 +44,12 @@ const NavBar = ({ resultList, setSearchResultList, handleThemeSwitch }) => {
       setSearchResultList(result);
       navigate("/search");
     } else {
-      alert("Search Not Found!");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Search Not Found!",
+        confirmButtonText: "OK",
+      });
     }
   };
 

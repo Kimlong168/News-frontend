@@ -6,6 +6,7 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 import GoToTop from "../components/GoToTop";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
+
 const Search = ({ searchResultList, authorList }) => {
   const [visible, setVisible] = useState(3);
 
@@ -20,6 +21,9 @@ const Search = ({ searchResultList, authorList }) => {
       </div>
     );
   }
+
+
+
   return (
     <div className="container mt-16">
       <Helmet>
