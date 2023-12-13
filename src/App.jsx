@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import Home from "./pages/Home";
 import About from "./pages/About";
 import News from "./pages/News";
@@ -7,7 +8,7 @@ import Error404 from "./pages/Error404";
 import "./App.css";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
-
+import Popup5s from "./components/Popup5s";
 import { useEffect, useState } from "react";
 import { collection, getDocs, orderBy, query } from "firebase/firestore";
 import { db } from "./firebase-config";
@@ -25,6 +26,7 @@ export default function App() {
   const [theme, setTheme] = useState(
     localStorage.getItem("mode") ? localStorage.getItem("mode") : "light"
   );
+  const [showPopup, setShowPopup] = useState(false);
   useEffect(() => {
     const postCollectionRef = collection(db, "posts");
     const authorCollectionRef = collection(db, "authors");
@@ -45,7 +47,7 @@ export default function App() {
         query(
           clubCollectionRef,
           // orderBy("point", "desc"),
-          orderBy("numGD", "desc"),
+          orderBy("numGD", "desc")
         )
       );
       const groups = await getDocs(groupCollectionRef);
@@ -101,8 +103,26 @@ export default function App() {
     setTheme(theme === "dark" ? "light" : "dark");
   };
 
+  //show popup 5s
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setShowPopup(true);
+    }, 1000);
+    return () => clearTimeout(timeout);
+  },[]);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setShowPopup(false);
+    }, 45000);
+    return () => clearTimeout(timeout);
+  },[]);
+
   return (
     <div className="dark:bg-black">
+      {showPopup && <Popup5s setShowPopup={setShowPopup} />}
+
       <Router>
         <NavBar
           resultList={resultList}
