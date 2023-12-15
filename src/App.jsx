@@ -108,7 +108,7 @@ export default function App() {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setShowPopup(true);
-      document.body.style.overflow = 'hidden'; // unenable scrolling
+      // document.body.style.overflow = 'hidden'; // unenable scrolling
     }, 1000);
     return () => clearTimeout(timeout);
   },[]);
@@ -116,7 +116,7 @@ export default function App() {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setShowPopup(false);
-      document.body.style.overflow = 'auto'; // Enable scrolling
+      // document.body.style.overflow = 'auto'; // Enable scrolling
     }, 46000);
     return () => clearTimeout(timeout);
   },[]);

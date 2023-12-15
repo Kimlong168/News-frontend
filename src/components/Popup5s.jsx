@@ -22,7 +22,7 @@ const Popup5s = ({ setShowPopup }) => {
       // Add your logic to close the modal here
       // For example, you might call a function to close the modal
       setShowPopup(false);
-      document.body.style.overflow = "auto"; // Enable scrolling
+      // document.body.style.overflow = "auto"; // Enable scrolling
     }
   }, [seconds, setShowPopup]);
 
