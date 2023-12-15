@@ -22,6 +22,7 @@ const Popup5s = ({ setShowPopup }) => {
       // Add your logic to close the modal here
       // For example, you might call a function to close the modal
       setShowPopup(false);
+      document.body.style.overflow = "auto"; // Enable scrolling
     }
   }, [seconds, setShowPopup]);
 
@@ -47,7 +48,10 @@ const Popup5s = ({ setShowPopup }) => {
             </div>
             <button
               className="px-3 py-1.5 bg-red-600 text-white"
-              onClick={() => setShowPopup(false)}
+              onClick={() => {
+                setShowPopup(false);
+                document.body.style.overflow = "auto"; // Enable scrolling
+              }}
             >
               Close now
             </button>
