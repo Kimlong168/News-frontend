@@ -122,7 +122,7 @@ export default function App() {
   },[]);
 
   return (
-    <div className="dark:bg-black">
+    <div className="dark:bg-black ">
       {showPopup && <Popup5s setShowPopup={setShowPopup} />}
 
       <Router>

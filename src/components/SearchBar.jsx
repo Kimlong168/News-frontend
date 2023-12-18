@@ -34,12 +34,14 @@ const SearchBar = ({ setSearchResultList }) => {
       navigate("/search");
     } else {
       // search not found modal
+      document.body.style.overflow = "hidden";
       Swal.fire({
         icon: "error",
         title: "Oops...",
         text: "Search Not Found!",
         confirmButtonText: "OK",
       });
+      document.body.style.overflow = "auto";
     }
   };
 

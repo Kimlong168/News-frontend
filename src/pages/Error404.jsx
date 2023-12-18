@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 const Error404 = () => {
   return (
-    <div>
+    <div className="overflow-hidden">
       <Helmet>
         <title>Boyloy-News| Error page not found!</title>
       </Helmet>
