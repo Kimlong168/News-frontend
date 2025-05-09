@@ -108,7 +108,7 @@ const DetailContent = ({ authorList, postList }) => {
               {author && (
                 <Author
                   fullName={author.fullName}
-                  profileImage={author.profilePicture}
+                  profileImage={author?.profilePicture}
                   bio={author.bio}
                   links={author.links}
                 />
@@ -166,7 +166,7 @@ const DetailContent = ({ authorList, postList }) => {
                         coverImage={data.img}
                         title={data.title}
                         description={data.description}
-                        authorImg={author.profilePicture}
+                        authorImg={author?.profilePicture}
                         authorName={author.fullName}
                       />
                     </Link>
@@ -187,7 +187,7 @@ const DetailContent = ({ authorList, postList }) => {
                         coverImage={data.img}
                         title={data.title}
                         description={data.description}
-                        authorImg={author.profilePicture}
+                        authorImg={author?.profilePicture}
                         authorName={author.fullName}
                       />
                     </Link>

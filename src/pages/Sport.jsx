@@ -59,7 +59,7 @@ const Sport = ({ postList, authorList, categoryList }) => {
                   coverImage={data.img}
                   title={data.title}
                   description={data.description}
-                  authorImg={author.profilePicture}
+                  authorImg={author?.profilePicture}
                   authorName={author.fullName}
                 />
               </Link>
@@ -81,7 +81,7 @@ const Sport = ({ postList, authorList, categoryList }) => {
                   coverImage={data.img}
                   title={data.title}
                   description={data.description}
-                  authorImg={author.profilePicture}
+                  authorImg={author?.profilePicture}
                   authorName={author.fullName}
                 />
               </Link>

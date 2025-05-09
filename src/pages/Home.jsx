@@ -8,6 +8,7 @@ import { Helmet } from "react-helmet";
 import Banner from "../components/Banner";
 import StandingTable from "../components/StandingTable";
 import { useEffect, useState } from "react";
+import dragon from "../assets/dragon.png";
 const Home = ({
   postList,
   todayMatchList,
@@ -214,6 +215,13 @@ const Home = ({
                   group="B"
                 />
               )} */}
+            </div>
+            {/* test image */}
+            <div className="flex items-end mt-10">
+              <img width={40} height={100} src={dragon} alt="dragon" />
+              <span className="dark:text-yellow-600 text-yellow-500 font-semibold text-xl uppercase border-b rounded-br-xl border-yellow-600 mb-[3px] pr-3">
+                Sponsors
+              </span>
             </div>
             <div className="mt-10 p-3 md:p-0">
               <Banner />

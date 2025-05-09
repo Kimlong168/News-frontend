@@ -27,6 +27,7 @@ export default function App() {
     localStorage.getItem("mode") ? localStorage.getItem("mode") : "light"
   );
   const [showPopup, setShowPopup] = useState(false);
+  
   useEffect(() => {
     const postCollectionRef = collection(db, "posts");
     const authorCollectionRef = collection(db, "authors");

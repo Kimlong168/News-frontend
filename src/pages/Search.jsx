@@ -22,8 +22,6 @@ const Search = ({ searchResultList, authorList }) => {
     );
   }
 
-
-
   return (
     <div className="container mt-16">
       <Helmet>
@@ -49,7 +47,7 @@ const Search = ({ searchResultList, authorList }) => {
                   coverImage={data.img}
                   title={data.title}
                   description={data.description}
-                  authorImg={author.profilePicture}
+                  authorImg={author?.profilePicture}
                   authorName={author.fullName}
                 />
               </Link>
